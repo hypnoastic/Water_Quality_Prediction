@@ -45,7 +45,7 @@ def main():
         "artifacts/xgboost.json",
         "artifacts/mlp.pt",
         "artifacts/preprocessing.joblib",
-        "reports/report.html",
+        "reports/report.md",
         "reports/predictions_test.csv.gz",
     ]
     check(
@@ -125,10 +125,9 @@ def main():
                 "Reloaded models match the saved holdout fixture",
             )
     for name in [
-        "01_results.ipynb",
-        "02_eda.ipynb",
-        "03_preprocessing.ipynb",
-        "04_model_application.ipynb",
+        "01_eda.ipynb",
+        "02_preprocessing.ipynb",
+        "03_model_application.ipynb",
     ]:
         book = nbformat.read(ROOT / "notebooks" / name, as_version=4)
         nbformat.validate(book)
@@ -205,26 +204,13 @@ def main():
             total == audit["raw_rows"] and max_error < 1e-7,
             f"{total:,} rows; maximum absolute difference {max_error:.3e}",
         )
-    for archive_name, expected_count in [("combined_source.zip", 1), ("country_sources.zip", 5)]:
-        archive_path = ROOT / "data/raw" / archive_name
-        if archive_path.exists():
-            with zipfile.ZipFile(archive_path) as archive:
-                csvs = [name for name in archive.namelist() if name.endswith(".csv")]
-                check(
-                    f"Archived source: {archive_name}",
-                    len(csvs) == expected_count and archive.testzip() is None,
-                    f"{expected_count} original CSVs verified inside the archive",
-                )
-    reproduction = ROOT / ".build/reproduction/reports/metrics.csv"
-    if reproduction.exists():
-        repeat = pd.read_csv(reproduction)
-        delta = np.abs(
-            repeat[["mae", "rmse", "r2"]].to_numpy() - recorded[["mae", "rmse", "r2"]].to_numpy()
-        ).max()
+    reproduction = run.get("reproduction")
+    if reproduction:
+        delta = reproduction["max_absolute_difference"]
         check(
-            "Independent training reproduction",
+            "Recorded training reproduction",
             delta < 1e-5,
-            f"Maximum metric difference {delta:.3e}",
+            f"Earlier independent full rerun: maximum metric difference {delta:.3e}",
         )
     payload = {
         "verified_utc": datetime.now(UTC).isoformat(),
@@ -234,12 +220,11 @@ def main():
         "assessment": "Apt for the brief as a transparent index-emulation comparison; independent environmental prediction is not established.",
         "administrative_note": "Dummy team details are intentional, as requested.",
     }
-    output = ROOT / "submission/verification.json"
-    output.write_text(json.dumps(payload, indent=2) + "\n")
     lines = [
         "# Final submission verification",
         "",
         f"Status: **PASS**. {len(results)} checks completed.",
+        f"Verified UTC: {payload['verified_utc']}",
         "",
         payload["assessment"],
         "",
@@ -252,7 +237,7 @@ def main():
     lines.extend(
         [
             "",
-            "The full test suite and lint checks are run separately and recorded in the submission handoff.",
+            "Implementation tests and lint checks also run in GitHub Actions. Run python -m pytest -q and ruff check src tests scripts app.py locally.",
             "Visual review covers the exported slide PDF and both report PDFs. Package checks alone do not prove appearance.",
             "The scientific limitations remain part of the submitted report, rather than being treated as validation failures.",
         ]

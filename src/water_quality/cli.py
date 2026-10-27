@@ -41,7 +41,7 @@ def main():
         from .reporting import rebuild_report
 
         rebuild_report(args.output, args.artifacts)
-        print(f"Rebuilt {args.output}/report.html and report.md")
+        print(f"Rebuilt figures and {args.output}/report.md")
     else:
         from .predict import predict_file
 

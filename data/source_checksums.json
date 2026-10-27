@@ -3,44 +3,8 @@
     "sha256": "81ced159f465aa5ab004b77130e5f7147c698876ddbf2f97807e31c9d0e8d714",
     "bytes": 319547580
   },
-  "data/raw/countries/Canada_dataset.csv": {
-    "sha256": "77e7177d71d2dc7c9b5ca5bac88fc0f77b92a40c38086050037894b3c42f7d7f",
-    "bytes": 444329
-  },
-  "data/raw/countries/China_dataset.csv": {
-    "sha256": "eb5ab7bd069750122b2b8b4da2c43f88cf8044d360200a6b9fc7e788e1a48bb4",
-    "bytes": 4302023
-  },
-  "data/raw/countries/England_dataset.csv": {
-    "sha256": "aa32adf3fcb48d569bffd7aebb7b2d5be64ccd296a48299f10527f1ab1f4f8c8",
-    "bytes": 249246016
-  },
-  "data/raw/countries/Ireland_dataset.csv": {
-    "sha256": "516d1190c24838ac06de80c3f24a163716e138401f00b4c211191e7a373b7dcd",
-    "bytes": 28893760
-  },
-  "data/raw/countries/USA_dataset.csv": {
-    "sha256": "21e7a6f8db36edd3d8429cd5b8f65abbcfd2b6ced0c63e2836822a5e36b0b8ef",
-    "bytes": 36573726
-  },
-  "data/reference/DataCollectionSources.xlsx": {
-    "sha256": "a7aa19b4969ab7631393bccb106a61242d78067d34d024001603c64fd9b5740d",
-    "bytes": 37993
-  },
-  "data/reference/Summary.xlsx": {
-    "sha256": "7ccc626bbf35466d192416044ad651cbb9af246dfc25c49b9f6c6f2dfd066f6d",
-    "bytes": 14727
-  },
-  "data/reference/Summary_country.xlsx": {
-    "sha256": "a6c7591ddafe02a5cfe23a91f18584aa1f69a24963f20b4fb092c6d7c3a8e6e9",
-    "bytes": 14280
-  },
   "notebooks/reference/Data_Processing_Harmonization.ipynb": {
     "sha256": "e5d772f9a59965754fc61ceed528e6ff1a47b15698d9aa9e49d9e6779e7f5d80",
     "bytes": 202710
-  },
-  "notebooks/reference/Technical_Validation.ipynb": {
-    "sha256": "6a6b7d9c94f689c0d143bb01ca356f40d3f70607865b457b3306168954232823",
-    "bytes": 841939
   }
 }

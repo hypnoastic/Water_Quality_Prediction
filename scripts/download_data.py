@@ -7,7 +7,6 @@ Only Python's standard library is required. About 320 MB of disk space is needed
 import hashlib
 import json
 import urllib.request
-import zipfile
 from pathlib import Path
 
 
@@ -18,7 +17,8 @@ def main():
         "data/raw/combined/Combined_dataset.csv"
     ]["sha256"]
     if target.exists():
-        digest = hashlib.file_digest(target.open("rb"), "sha256").hexdigest()
+        with target.open("rb") as source:
+            digest = hashlib.file_digest(source, "sha256").hexdigest()
         if digest != expected:
             raise ValueError("Existing combined CSV does not match the documented source hash")
         print(f"Verified existing source: {target}")
@@ -27,26 +27,15 @@ def main():
     partial = target.with_suffix(".csv.part")
     digest = hashlib.sha256()
     try:
-        archive = root / "data/raw/combined_source.zip"
-        if archive.exists():
-            with (
-                zipfile.ZipFile(archive) as bundle,
-                bundle.open("combined/Combined_dataset.csv") as source,
-                partial.open("wb") as output,
-            ):
-                for block in iter(lambda: source.read(1024 * 1024), b""):
-                    digest.update(block)
-                    output.write(block)
-        else:
-            with (
-                urllib.request.urlopen(
-                    "https://ndownloader.figshare.com/files/50757321", timeout=60
-                ) as response,
-                partial.open("wb") as output,
-            ):
-                for block in iter(lambda: response.read(1024 * 1024), b""):
-                    digest.update(block)
-                    output.write(block)
+        with (
+            urllib.request.urlopen(
+                "https://ndownloader.figshare.com/files/50757321", timeout=60
+            ) as response,
+            partial.open("wb") as output,
+        ):
+            for block in iter(lambda: response.read(1024 * 1024), b""):
+                digest.update(block)
+                output.write(block)
         if digest.hexdigest() != expected:
             raise ValueError("Downloaded data do not match the supplied source hash")
         partial.replace(target)

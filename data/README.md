@@ -1,36 +1,25 @@
-# Dataset location and attribution
+# Data source
 
-Original release: Karim et al., [Figshare v2](https://doi.org/10.6084/m9.figshare.27800394.v2).
-Dataset licence: [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/).
-Credit the dataset authors and original paper when reusing their work, as requested
-on the source page. This repository preserves the supplied release and identifies
-new analysis separately.
+Karim et al., [A Comprehensive Surface Water Quality Monitoring Dataset
+(1940–2023), Figshare version 2](https://doi.org/10.6084/m9.figshare.27800394.v2).
+The release uses [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
-The project began with the downloaded release already present. It was reorganized
-without modifying the source CSVs, spreadsheets or notebooks:
-
-| Original release path | Current location |
-| --- | --- |
-| `Dataset/Combined Data/Combined_dataset.csv` | `data/raw/combined/Combined_dataset.csv` |
-| `Dataset/Country-Wise Data/*_dataset.csv` | `data/raw/countries/` |
-| `Dataset/Combined Data/Summary.xlsx` | `data/reference/Summary.xlsx` |
-| `Dataset/Country-Wise Data/Summary_country.xlsx` | `data/reference/Summary_country.xlsx` |
-| `Data Collection Sources/DataCollectionSources.xlsx` | `data/reference/DataCollectionSources.xlsx` |
-| `Code/*.ipynb` | `notebooks/reference/` |
-
-For a fresh clone, run `python scripts/download_data.py` to restore and hash-verify
-the combined CSV from `data/raw/combined_source.zip`. If that archive is absent, the
-script downloads the exact source file. `data/raw/country_sources.zip` contains the
-five country views. Unpack those only if needed:
+Training uses only `data/raw/combined/Combined_dataset.csv`: 2,827,977 rows,
+14 columns and about 320 MB. Restore or verify it with:
 
 ```bash
-python -m zipfile -e data/raw/country_sources.zip data/raw/
+python scripts/download_data.py
 ```
 
-Both archives retain the original CSV bytes and are below GitHub's per-file size
-limit. Training needs only the combined CSV (~320 MB uncompressed). Extracted CSVs
-are ignored by Git. Do not combine the country copies with the combined CSV.
+The script downloads the exact release file and checks its SHA-256. Extracted data
+stay local and are ignored by Git. Country CSVs, data archives and source summary
+spreadsheets were removed because they repeat information already in the combined
+CSV and generated audit. The original release remains available at the DOI.
 
-[`source_checksums.json`](source_checksums.json) records SHA-256 for all supplied
-source files. The experiment records its input hash in `reports/run_manifest.json`.
-See [the data card](../docs/DATA.md) for units, counts and label limitations.
+`source_checksums.json` verifies the two original files retained for research:
+the combined training CSV and the unchanged harmonization notebook in
+`notebooks/reference/`. That notebook documents the source-derived labels,
+including the denominator and objective directions.
+
+See [docs/DATA.md](../docs/DATA.md) for units, target construction, quality rules and
+scientific limitations. Inference uses the saved models and needs no raw CSV.

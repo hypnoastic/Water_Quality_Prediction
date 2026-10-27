@@ -17,8 +17,9 @@ release, not original laboratory observations. The combined CSV contains
 
 `Country`, `Area`, `Waterbody Type` and `Date` are metadata. `Area` is only a coarse
 site proxy, particularly for China. Dates are parsed strictly as **day-month-year**.
-Country-specific files are alternate views of the combined data; do not append them
-to it. Original summary spreadsheets are descriptive references, not model inputs.
+Country-specific files in the original release are alternate views of the combined
+data. Only the combined CSV is needed here. Generated statistics are retained in
+`reports/data_audit.json` instead of duplicate summary spreadsheets.
 
 ## Schema
 
@@ -101,7 +102,6 @@ is in [`reports/run_manifest.json`](../reports/run_manifest.json).
 conversion, median imputation and the derived label. It references external Colab
 inputs not supplied here; it is preserved for provenance, not advertised as runnable.
 
-`Technical_Validation.ipynb` uses hardcoded Kaggle paths, removes outliers before the
-split, scales before a random split, and treats tabular columns as LSTM time steps.
-The new pipeline replaces those evaluation choices with explicit partitions,
-training-only transforms, retained pollution extremes and an appropriate tabular MLP.
+The new pipeline uses explicit chronological partitions, training-only transforms,
+retained pollution extremes and a tabular MLP. The upstream technical-validation
+notebook remains available in the original release; it is not needed to run this project.

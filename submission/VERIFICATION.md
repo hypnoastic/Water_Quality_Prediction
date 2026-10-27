@@ -1,6 +1,7 @@
 # Final submission verification
 
-Status: **PASS**. 40 checks completed.
+Status: **PASS**. 28 checks completed.
+Verified UTC: 2026-10-27T03:36:52.024930+00:00
 
 Apt for the brief as a transparent index-emulation comparison; independent environmental prediction is not established.
 
@@ -9,7 +10,7 @@ Team identities remain editable dummy values at the user's request.
 | Check | Result | Evidence |
 | --- | --- | --- |
 | Submission artifacts | PASS | 15 required files |
-| Trained artifact hashes | PASS | 6 saved artifact hashes match |
+| Trained artifact hashes | PASS | 4 saved artifact hashes match |
 | Data accounting | PASS | 2,818,006 retained rows across disjoint dated partitions |
 | One continuous target | PASS | CCME_Values regression, eight measurement inputs plus flags |
 | Formula disclosure | PASS | Every original label reconstructs; derived-target limitation is explicit |
@@ -24,31 +25,19 @@ Team identities remain editable dummy values at the user's request.
 | Reload parity: XGBoost | PASS | Reloaded models match the saved holdout fixture |
 | Reload parity: MLP | PASS | Reloaded models match the saved holdout fixture |
 | Reload parity: Blend | PASS | Reloaded models match the saved holdout fixture |
-| Executed notebook: 01_results.ipynb | PASS | 6 executed cells with no recorded errors |
-| Executed notebook: 02_eda.ipynb | PASS | 6 executed cells with no recorded errors |
-| Executed notebook: 03_preprocessing.ipynb | PASS | 5 executed cells with no recorded errors |
-| Executed notebook: 04_model_application.ipynb | PASS | 6 executed cells with no recorded errors |
+| Executed notebook: 01_eda.ipynb | PASS | 6 executed cells with no recorded errors |
+| Executed notebook: 02_preprocessing.ipynb | PASS | 5 executed cells with no recorded errors |
+| Executed notebook: 03_model_application.ipynb | PASS | 6 executed cells with no recorded errors |
 | PDF: Water_Quality_Project_Report.pdf | PASS | 10 readable pages |
 | PDF: Water_Quality_Literature_Review.pdf | PASS | 4 readable pages |
 | PDF: Water_Quality_Prediction.pdf | PASS | 12 readable pages |
 | Editable presentation | PASS | 12 slides, four native charts with embedded workbooks, 12 speaker-note parts |
 | PPTX package integrity | PASS | Every declared content-type part exists |
 | Source hash: Combined_dataset.csv | PASS | Original source file is unchanged |
-| Source hash: Canada_dataset.csv | PASS | Original source file is unchanged |
-| Source hash: China_dataset.csv | PASS | Original source file is unchanged |
-| Source hash: England_dataset.csv | PASS | Original source file is unchanged |
-| Source hash: Ireland_dataset.csv | PASS | Original source file is unchanged |
-| Source hash: USA_dataset.csv | PASS | Original source file is unchanged |
-| Source hash: DataCollectionSources.xlsx | PASS | Original source file is unchanged |
-| Source hash: Summary.xlsx | PASS | Original source file is unchanged |
-| Source hash: Summary_country.xlsx | PASS | Original source file is unchanged |
 | Source hash: Data_Processing_Harmonization.ipynb | PASS | Original source file is unchanged |
-| Source hash: Technical_Validation.ipynb | PASS | Original source file is unchanged |
 | Independent full formula replay | PASS | 2,827,977 rows; maximum absolute difference 2.842e-14 |
-| Archived source: combined_source.zip | PASS | 1 original CSVs verified inside the archive |
-| Archived source: country_sources.zip | PASS | 5 original CSVs verified inside the archive |
-| Independent training reproduction | PASS | Maximum metric difference 0.000e+00 |
+| Recorded training reproduction | PASS | Earlier independent full rerun: maximum metric difference 0.000e+00 |
 
-The full test suite and lint checks are run separately and recorded in the submission handoff.
+Implementation tests and lint checks also run in GitHub Actions. Run python -m pytest -q and ruff check src tests scripts app.py locally.
 Visual review covers the exported slide PDF and both report PDFs. Package checks alone do not prove appearance.
 The scientific limitations remain part of the submitted report, rather than being treated as validation failures.

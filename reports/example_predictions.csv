@@ -1,6 +1,0 @@
-Ammonia (mg/l),Biochemical Oxygen Demand (mg/l),Dissolved Oxygen (mg/l),Orthophosphate (mg/l),pH (ph units),Temperature (cel),Nitrogen (mg/l),Nitrate (mg/l),predicted_source_index,lower_90,upper_90,model,flagged_or_missing_measurements,input_review_required
-0.098,2.7,9.04,0.144,7.95,14.0,5.0,4.5,89.64352,89.39014,89.8969,Blend,0,False
-0.03,2.7,10.2,0.01,7.78,9.4,0.71,0.706,99.99926,99.74588,100.0,Blend,0,False
-0.062,2.7,8.83,0.29,7.81,16.4,1.8,1.77,81.975815,81.722435,82.229195,Blend,0,False
-0.5,2.7,10.2,0.7,7.78,11.46,18.0,4.5,69.13333,68.87995,69.38671,Blend,0,False
-0.016666667,1.4,11.684103383014412,0.019625,8.0,8.1375,0.22,1.3,99.99666,99.74328,100.0,Blend,0,False

@@ -1,7 +1,6 @@
-"""Publication-style figures and a portable, offline HTML research report."""
+"""Publication-style figures and a Markdown research report."""
 
 import os
-from html import escape
 from pathlib import Path
 
 os.environ.setdefault("MPLCONFIGDIR", str(Path(".cache/matplotlib").resolve()))
@@ -309,8 +308,8 @@ Concentrations use mg/L; pH is unitless
 and temperature is labelled °C. Turbidity, conductivity and dissolved solids are absent.
 Only continuous `CCME_Values` is predicted; `CCME_WQI` and all metadata are excluded from inputs.
 
-The original notebooks and source workbooks are preserved under `notebooks/reference/`
-and `data/reference/`. See [data card](../docs/DATA.md) for the formula and audit.
+The original harmonization notebook is preserved under `notebooks/reference/` because
+it documents the derived target. See [data card](../docs/DATA.md) for the formula and audit.
 
 ## Protocol
 
@@ -390,93 +389,6 @@ It includes missing-flag contributions separately in `shap_importance.csv`.
         + "\n"
     )
     (out / "report.md").write_text(md)
-    cards = "".join(
-        f'<div class="card"><span>{escape(label)}</span><strong>{escape(value)}</strong></div>'
-        for label, value in [
-            ("Source records", f"{audit['raw_rows']:,}"),
-            ("Selected on validation", selected),
-            ("Test RMSE · index points", f"{row.rmse:.3f}"),
-            ("Test R²", f"{row.r2:.5f}"),
-        ]
-    )
-    figures = [
-        (
-            "data_overview.png",
-            "01 / Know the data",
-            "Unequal representation and a derived target shape this benchmark.",
-        ),
-        (
-            "model_comparison.png",
-            "02 / Compare on future observations",
-            "Every model uses the same training rows; 2021–2023 is held out.",
-        ),
-        (
-            "actual_vs_predicted.png",
-            "03 / Inspect the predictions",
-            "Density plots show a seeded sample of test observations. The dashed line is perfect reproduction.",
-        ),
-        (
-            "feature_importance.png",
-            "04 / Explain the model behavior",
-            "Shuffling validation measurements tests model reliance, measured as the increase in MAE.",
-        ),
-        (
-            "shap_importance.png",
-            "05 / Attribute tree predictions",
-            "Exact native TreeSHAP contributions in index units. Attribution does not imply causation.",
-        ),
-        (
-            "learning_curves.png",
-            "06 / Check convergence",
-            "Validation curves govern early stopping; test results do not influence training.",
-        ),
-        (
-            "country_performance.png",
-            "07 / Inspect distribution shift",
-            "Overall accuracy can conceal country differences and interval undercoverage.",
-        ),
-    ]
-    panels = "".join(
-        f'<section><h2>{title}</h2><p>{caption}</p><img src="figures/{name}" alt="{escape(title)}" loading="lazy"></section>'
-        for name, title, caption in figures
-    )
-    html = """<!doctype html><html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Water Quality · Research Report</title><style>
-:root{--ink:#163640;--muted:#526f78;--teal:#087f8c;--paper:#f4f8f8;--line:#dce7e8}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,sans-serif}
-header{padding:72px max(6vw,24px) 64px;background:#113e48;color:#fff;border-top:6px solid #65d4c3}
-header .eyebrow{letter-spacing:.2em;text-transform:uppercase;font-size:12px;color:#9fdbd4}h1{font-size:clamp(38px,5.5vw,70px);line-height:1.08;letter-spacing:-.045em;max-width:950px;margin:22px 0}
-header p{max-width:720px;color:#c4dedf;font-size:18px}main{max-width:1160px;margin:auto;padding:32px 24px 64px}
-h2{font-size:25px;letter-spacing:-.025em;margin:0 0 12px}h3{margin-top:28px}p{color:var(--muted)}a{color:var(--teal)}
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 28px}.card,section{background:white;border:1px solid var(--line);border-radius:14px}
-.card{padding:22px}.card span{font-size:12px;color:var(--muted);display:block}.card strong{font-size:28px;letter-spacing:-.04em;display:block;margin-top:8px}
-section{padding:30px;margin:22px 0}section img{display:block;max-width:100%;height:auto;margin:20px auto 0}.note{border-left:4px solid #df9862;background:#fff9f1}
-.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}th{text-align:left;color:var(--teal);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
-td,th{padding:12px 14px;border-bottom:1px solid var(--line);white-space:nowrap}li{margin:12px 0;color:var(--muted)}footer{padding-top:20px;color:var(--muted);font-size:13px}
-@media(max-width:700px){.cards{grid-template-columns:repeat(2,1fr)}section{padding:20px}.card{padding:16px}.card strong{font-size:23px}header{padding-top:45px}}
-@media print{header{padding:20px;color:var(--ink);background:white}section{break-inside:avoid}body{background:white}.cards{grid-template-columns:repeat(4,1fr)}}
-</style></head><body><header><div class="eyebrow">Project 18 · Applied machine learning research</div>
-<h1>Water quality,<br>with evidence.</h1><p>Gradient boosting and neural networks for emulating a published surface-water index. A chronological comparison with an explicit target audit.</p></header><main>
-"""
-    table = scores[["model", "mae", "rmse", "r2", "coverage", "mean_width"]]
-    html += f'<div class="cards">{cards}</div><section class="note"><h2>Read the target before the scores</h2><p>{escape(warning)}</p></section>'
-    html += f'<section><h2>The measured result</h2><p>{escape(findings)}</p><p>{escape(tradeoff)}</p><div class="tablewrap">{table.to_html(index=False, float_format=lambda v: f"{v:.4f}", border=0)}</div></section>'
-    html += f'<section><h2>A fair, reproducible comparison</h2><p>{escape(methodology)}</p><div class="tablewrap">{split_frame[["partition", "rows", "start", "end"]].to_html(index=False, border=0)}</div></section>'
-    html += panels
-    html += f'<section class="note"><h2>Check reliability within groups</h2><p>{escape(subgroup_caution)}</p><div class="tablewrap">{country[["group", "rows", "mae", "rmse", "coverage"]].to_html(index=False, float_format=lambda v: f"{v:.4f}", border=0)}</div></section>'
-    html += (
-        "<section><h2>Limits of the evidence</h2><ul>"
-        + "".join(f"<li>{escape(item)}</li>" for item in limitations)
-        + "</ul></section>"
-    )
-    html += f'<section><h2>What this means in practice</h2><p>{escape(conclusion)}</p><p><a href="report.md">Full technical report</a> · <a href="metrics.csv">Metrics CSV</a> · <a href="run_manifest.json">Reproducibility manifest</a></p></section>'
-    html += (
-        "<footer>Sources: "
-        + " · ".join(f'<a href="{url}">{escape(title)}</a>' for title, url in sources)
-        + "</footer></main></body></html>"
-    )
-    (out / "report.html").write_text(html)
 
 
 def rebuild_report(output="reports", artifacts="artifacts"):

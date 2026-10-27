@@ -1,4 +1,3 @@
-import json
 from pathlib import Path
 
 import numpy as np
@@ -11,12 +10,10 @@ from water_quality.predict import predict_file
 @pytest.mark.skipif(not Path("artifacts/metadata.json").exists(), reason="Train artifacts first")
 @pytest.mark.parametrize("family", ["XGBoost", "MLP", "Blend"])
 def test_saved_models_reproduce_recorded_test_predictions(tmp_path, family):
-    fixture = pd.read_csv("examples/labeled_measurements.csv")
+    fixture = pd.read_csv("examples/measurements.csv")
     recorded = pd.read_csv("examples/expected_predictions.csv")
-    # The generated fixture is sampled from the holdout; match by exact source target
-    # and verify predictions using the generated independent source-row fixture.
-    ids = json.loads(Path("artifacts/example_source_rows.json").read_text())
-    expected = recorded.set_index("source_row").loc[ids, family].to_numpy()
+    # Input and expected-output rows retain the same order from the holdout sample.
+    expected = recorded[family].to_numpy()
     result = predict_file("examples/measurements.csv", "artifacts", tmp_path / "out.csv", family)
     assert len(result) == len(fixture)
     np.testing.assert_allclose(result.predicted_source_index, expected, atol=1e-4, rtol=1e-6)

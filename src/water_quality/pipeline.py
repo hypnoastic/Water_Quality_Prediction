@@ -328,7 +328,6 @@ def run(config):
     best_xgb.save_model(artifacts / "xgboost.json")
     torch.save(best_mlp.state_dict(), artifacts / "mlp.pt")
     joblib.dump({"tree": tree_pre, "neural": neural_pre}, artifacts / "preprocessing.joblib")
-    joblib.dump({"dummy": dummy, "ridge": ridge}, artifacts / "baselines.joblib")
     metadata = {
         "schema_version": 1,
         "selected_model": champion,
@@ -344,12 +343,17 @@ def run(config):
         "warning": "This index is not official site-period CCME WQI or drinking-water safety.",
     }
     dump_json(artifacts / "metadata.json", metadata)
+    dump_json(
+        artifacts / "checksums.json",
+        {
+            name: sha256(artifacts / name)
+            for name in ["xgboost.json", "mlp.pt", "preprocessing.joblib", "metadata.json"]
+        },
+    )
     # Small, independent inference fixture; original field names and units are retained.
     example = test.sample(n=min(5, len(test)), random_state=config["seed"])
     Path("examples").mkdir(exist_ok=True)
     example[FEATURES].to_csv("examples/measurements.csv", index=False)
-    example[FEATURES + [TARGET]].to_csv("examples/labeled_measurements.csv", index=False)
-    dump_json(artifacts / "example_source_rows.json", example.source_row.tolist())
     prediction_table.set_index("source_row").loc[example.source_row].reset_index().to_csv(
         "examples/expected_predictions.csv", index=False
     )
@@ -392,4 +396,4 @@ def run(config):
         provenance,
     )
     print(scores[["model", "mae", "rmse", "r2", "coverage"]].to_string(index=False), flush=True)
-    print(f"Finished. Read {out / 'report.html'} and {out / 'report.md'}", flush=True)
+    print(f"Finished. Read {out / 'report.md'}", flush=True)

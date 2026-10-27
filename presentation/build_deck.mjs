@@ -7,7 +7,20 @@ import pptxgen from 'pptxgenjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.dirname(here);
-const data = JSON.parse(fs.readFileSync(path.join(here, 'results.json'), 'utf8'));
+function readCsv(name) {
+  const rows = JSON.parse(execFileSync(process.env.PYTHON || 'python3', [
+    '-c', 'import csv,json,sys; print(json.dumps(list(csv.DictReader(open(sys.argv[1])))))',
+    path.join(root, 'reports', name),
+  ], {encoding:'utf8'}));
+  return rows.map(row => Object.fromEntries(Object.entries(row).map(([key, value]) =>
+    [key, value !== '' && Number.isFinite(Number(value)) ? Number(value) : value])));
+}
+const data = {
+  data_audit: JSON.parse(fs.readFileSync(path.join(root, 'reports/data_audit.json'), 'utf8')),
+  metrics: readCsv('metrics.csv'),
+  importance: readCsv('permutation_importance.csv'),
+  groups: readCsv('subgroup_metrics.csv'),
+};
 const team = JSON.parse(fs.readFileSync(path.join(root, 'submission/team.json'), 'utf8'));
 const pptx = new pptxgen();
 pptx.layout = 'LAYOUT_WIDE';
@@ -186,5 +199,4 @@ function bar(s,series,x,y,w,h,opts={}) {
 }
 await pptx.writeFile({fileName:path.join(here,'Water_Quality_Prediction.pptx')});
 execFileSync(process.env.PYTHON || 'python3', [path.join(root,'scripts/repair_pptx_package.py'), path.join(here,'Water_Quality_Prediction.pptx')], {stdio:'inherit'});
-fs.writeFileSync(path.join(here,'slide_manifest.json'),JSON.stringify({slideCount:specs.length,slides:specs},null,2)+'\n');
 console.log(`Created ${specs.length} editable slides.`);

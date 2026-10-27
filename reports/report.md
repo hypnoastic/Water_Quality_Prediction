@@ -16,8 +16,8 @@ Concentrations use mg/L; pH is unitless
 and temperature is labelled °C. Turbidity, conductivity and dissolved solids are absent.
 Only continuous `CCME_Values` is predicted; `CCME_WQI` and all metadata are excluded from inputs.
 
-The original notebooks and source workbooks are preserved under `notebooks/reference/`
-and `data/reference/`. See [data card](../docs/DATA.md) for the formula and audit.
+The original harmonization notebook is preserved under `notebooks/reference/` because
+it documents the derived target. See [data card](../docs/DATA.md) for the formula and audit.
 
 ## Protocol
 

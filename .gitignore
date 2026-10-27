@@ -15,4 +15,8 @@ node_modules/
 *.part
 # Download separately; retain small references, reports and trained artifacts.
 data/raw/**/*.csv
+data/raw/**/*.zip
+reports/example_predictions.csv
+reports/notebook_predictions.csv
+reports/training.log
 # Full test predictions are included in the submission for reproducibility.
