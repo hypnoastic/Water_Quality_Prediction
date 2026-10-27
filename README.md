@@ -6,6 +6,16 @@ Compare XGBoost and a small PyTorch multilayer perceptron (MLP) for the continuo
 
 **Target interpretation:** the released index is calculated from the same eight measurements used as predictors. Our formula audit reconstructs every source label within `1e-7`. These results measure **index emulation**, not independent environmental outcomes or drinking-water safety. This source-defined, single-row calculation differs from official site-period CCME WQI.
 
+## Team
+
+| Team member | Enrollment number |
+|---|---|
+| Dhruv Kumar | 2401010152 |
+| Ritesh | 2041010383 |
+| Yash Kumar | 2401010512 |
+| Parul | 2401010321 |
+| Punit | 2401010359 |
+
 ## Repository structure
 
 ```text
@@ -32,7 +42,7 @@ Water_Quality_Prediction/
 |---|---|
 | `Datasets/` | Original combined CSV in a ZIP, plus one ZIP of trained models and measured outputs. Compression keeps the source CSV below GitHub’s individual-file limit. |
 | `Notebooks/` | All implementation and explanation in three notebooks. No external project modules or scripts are required. |
-| `Reports/` | Final project report, focused literature review, editable PowerPoint and its PDF export. Team identities are intentionally dummy values. |
+| `Reports/` | Final project report, focused literature review, editable PowerPoint and its PDF export. |
 | `figures/` | Exported PNG charts: data overview, target/time coverage, correlations, temporal split, model comparison, predictions, feature importance, SHAP, learning curves and country performance. |
 
 `.gitignore` excludes the local environment and regenerated intermediate files. `.gitattributes` tells Git to treat ZIPs, charts and documents as binary files.
