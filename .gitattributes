@@ -1,9 +1,4 @@
 *.pdf binary
 *.pptx binary
 *.zip binary
-*.xlsx binary
-*.pt binary
-*.joblib binary
 *.png binary
-*.jpg binary
-*.csv.gz binary

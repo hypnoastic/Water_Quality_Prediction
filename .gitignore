@@ -1,22 +1,6 @@
-.DS_Store
+# Local environment and notebook intermediates
 .venv/
-.cache/
 __pycache__/
-*.py[cod]
-.pytest_cache/
-.ruff_cache/
-*.egg-info/
-build/
-dist/
-.build/
-node_modules/
-.env
-.env.*
-*.part
-# Download separately; retain small references, reports and trained artifacts.
-data/raw/**/*.csv
-data/raw/**/*.zip
-reports/example_predictions.csv
-reports/notebook_predictions.csv
-reports/training.log
-# Full test predictions are included in the submission for reproducibility.
+.ipynb_checkpoints/
+.DS_Store
+Datasets/_working/

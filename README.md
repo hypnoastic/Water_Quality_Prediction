@@ -1,155 +1,108 @@
 # Water Quality Prediction
 
-**Project 18: Gradient Boosting and Deep Neural Networks**
+**Project 18 · Water Quality Prediction via Gradient Boosting and Deep Neural Networks**
 
-A reproducible comparison of XGBoost and a regularized PyTorch MLP using the
-published `CCME_Values` index. Includes trained models, a local demo, executed
-notebooks, research results and the final submission documents.
+Compare XGBoost and a small PyTorch multilayer perceptron (MLP) for the continuous, 0–100 `CCME_Values` index. Three executed notebooks contain the complete process: data exploration, cleaning, chronological splitting, training, evaluation, explanations and prediction with saved models.
 
-[![Verification](https://github.com/hypnoastic/Water_Quality_Prediction/actions/workflows/verify.yml/badge.svg)](https://github.com/hypnoastic/Water_Quality_Prediction/actions/workflows/verify.yml)
+**Target interpretation:** the released index is calculated from the same eight measurements used as predictors. Our formula audit reconstructs every source label within `1e-7`. These results measure **index emulation**, not independent environmental outcomes or drinking-water safety. This source-defined, single-row calculation differs from official site-period CCME WQI.
 
-| Read or present | File |
-| --- | --- |
-| Project report | [10-page PDF](submission/Water_Quality_Project_Report.pdf) |
-| Literature review | [4-page PDF](submission/Water_Quality_Literature_Review.pdf) |
-| Presentation | [Editable PowerPoint](presentation/Water_Quality_Prediction.pptx) · [PDF](presentation/Water_Quality_Prediction.pdf) |
-| Detailed results | [Technical report](reports/report.md) |
-| Theory and lessons | [learning.md](learning.md) |
-| Verification | [Submission checks](submission/VERIFICATION.md) |
+## Repository structure
 
-![Model comparison](reports/figures/model_comparison.png)
+```text
+Water_Quality_Prediction/
+├── Datasets/
+│   ├── Water_Quality_Dataset.zip
+│   └── water_quality_project_outputs.zip
+├── Notebooks/
+│   ├── 01_eda.ipynb
+│   ├── Preprocessing.ipynb
+│   └── 02_Model_Application.ipynb
+├── Reports/
+│   ├── Water_Quality_Project_Report.pdf
+│   ├── Water_Quality_Literature_Review.pdf
+│   ├── Water_Quality_Prediction.pptx
+│   └── Water_Quality_Prediction.pdf
+├── figures/
+├── .gitattributes
+├── .gitignore
+└── README.md
+```
 
-## Target and scope
+| Folder | What it contains and why |
+|---|---|
+| `Datasets/` | Original combined CSV in a ZIP, plus one ZIP of trained models and measured outputs. Compression keeps the source CSV below GitHub’s individual-file limit. |
+| `Notebooks/` | All implementation and explanation in three notebooks. No external project modules or scripts are required. |
+| `Reports/` | Final project report, focused literature review, editable PowerPoint and its PDF export. Team identities are intentionally dummy values. |
+| `figures/` | Exported PNG charts: data overview, target/time coverage, correlations, temporal split, model comparison, predictions, feature importance, SHAP, learning curves and country performance. |
 
-We predict one continuous score on a 0–100 scale from ammonia, BOD, dissolved
-oxygen, orthophosphate, pH, temperature, nitrogen and nitrate. The supplied dataset
-contains 2,827,977 rows from five countries across 1940–2023. Turbidity, conductivity
-and dissolved-solids measurements are not available.
+`.gitignore` excludes the local environment and regenerated intermediate files. `.gitattributes` tells Git to treat ZIPs, charts and documents as binary files.
 
-**The target is calculated from the same eight inputs.** Our audit reproduces every
-released label within `1e-7`, including the source denominator of 12. This project
-therefore evaluates **index emulation**. It does not establish independent water-quality
-prediction, forecasting or drinking-water safety. The source's row-level adaptation
-differs from official CCME site-period WQI. See [the data card](docs/DATA.md).
+## Run the project
 
-## Run the trained project
-
-From the repository root, using Python 3.12:
+Use **Python 3.12**. From the repository root:
 
 ```bash
 python3.12 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r requirements.lock.txt
-python -m pip install -e . --no-deps --no-build-isolation
-
-# Interactive demo: one sample or a CSV, using the saved models
-streamlit run app.py
+python -m pip install numpy==2.3.4 pandas==2.3.3 scikit-learn==1.7.2 xgboost==3.1.2 torch==2.9.1 matplotlib==3.11.2 joblib==1.6.0 ipykernel notebook
+python -m ipykernel install --user --name water-quality --display-name "Water Quality (Python 3.12)"
+python -m notebook
 ```
 
-The demo and CLI work without downloading the raw dataset. For CLI inference:
+On Windows, activate with `.venv\Scripts\activate`. In Jupyter, select the **Water Quality (Python 3.12)** kernel. Run every cell, in this order:
 
-```bash
-python -m water_quality predict --input examples/measurements.csv
-```
+1. **[01_eda.ipynb](Notebooks/01_eda.ipynb)** — extract and verify the CSV, inspect units/missingness/duplicates, audit the target formula and export exploratory charts.
+2. **[Preprocessing.ipynb](Notebooks/Preprocessing.ipynb)** — clean records, split by date, fit training-only transforms and save the local preparation cache.
+3. **[02_Model_Application.ipynb](Notebooks/02_Model_Application.ipynb)** — train, tune, compare and explain models, calibrate residual intervals, export results and predict using reloaded weights.
 
-Use `--model XGBoost`, `--model MLP` or `--model Blend` to select a model.
-Inputs must retain the example's original headers and units. The default blend
-uses 90% XGBoost and 10% MLP, selected by validation RMSE. Predictions are written
-to `reports/example_predictions.csv`, an ignored runtime output.
+The notebooks create `Datasets/_working/` for intermediate files. It is excluded from Git and can be deleted after use. CPU training uses four threads; allow several minutes and sufficient memory for the 2.8-million-row source.
 
-## Reproduce the research
+**Are the models already trained? Yes.** To use them immediately, open the model notebook, set `RETRAIN = False` in section 2 and run its cells. This loads the included output ZIP and runs the saved-model example without needing the first two notebooks. Its final cell also shows how to predict your own CSV using the original headers and units.
 
-```bash
-# Download the exact combined CSV and verify its SHA-256
-python scripts/download_data.py
+**Verification:** all three notebooks were executed from a fresh copy. Every one of the 202,886 test predictions reproduced the recorded results. Saved-model loading and prediction were also checked.
 
-# Audit, train, select, calibrate, evaluate and explain
-python -m water_quality train --config configs/default.json
+## Data and target
 
-# Rebuild figures and the Markdown report without retraining
-python -m water_quality report
+[Karim et al., Figshare dataset, version 2](https://doi.org/10.6084/m9.figshare.27800394.v2): **2,827,977 rows**, 14 columns, five countries, 1940–2023. The original combined CSV is redistributed with attribution under **CC BY 4.0**. It was already harmonized and imputed by the data authors. Country-specific files are alternative views and are not appended to the combined file.
 
-# Check implementation and submission evidence
-python -m pytest -q
-ruff check src tests scripts app.py
-python scripts/verify_submission.py
-```
+Inputs: ammonia, biochemical oxygen demand, dissolved oxygen, orthophosphate, pH, temperature, nitrogen and nitrate. Concentrations are labelled mg/L, pH is dimensionless and temperature is labelled °C. Turbidity, conductivity and dissolved solids are absent. Neither metadata nor the related `CCME_WQI` class is a predictor.
 
-`--skip-raw` lets the submission verifier run without an extracted dataset.
-The combined CSV stays local and is excluded from Git. Download details are in
-[data/README.md](data/README.md). A shallow clone avoids downloading obsolete files
-from earlier repository history:
+Source CSV SHA-256: `81ced159f465aa5ab004b77130e5f7147c698876ddbf2f97807e31c9d0e8d714`.
 
-```bash
-git clone --depth 1 https://github.com/hypnoastic/Water_Quality_Prediction.git
-```
+The EDA notebook implements and explains the released formula, including its upper-only objectives and inferred denominator of 12. See the [official CCME manual](https://ccme.ca/en/res/wqimanualen.pdf) for the different site-period standard.
 
-## Methods and measured results
+## Models and fair comparison
 
-All models share a seed-42 sample of 300,000 historical training rows. Training ends
-in 2018, validation uses 2019, residual calibration uses 2020 and the full test
-period covers 2021–2023. Median imputation fits on training only. Fixed quality flags
-retain information about missing/invalid readings. The MLP and Ridge additionally
-use `asinh` and standard scaling. Pollution extremes are preserved.
+| Method | Why it is included |
+|---|---|
+| Training-mean baseline | Checks whether learning improves on a constant prediction. |
+| Ridge regression | Gives a simple regularized linear reference. |
+| XGBoost | A strong tabular baseline for thresholds and interacting measurements. Depths 4/6, learning rate 0.05, up to 1,000 rounds and validation stopping. |
+| PyTorch MLP | Tests learned nonlinear combinations. Hidden layers 64/32 or 128/64, ReLU, dropout 0.1, AdamW and at most 60 epochs. |
+| Validation-selected blend | Tests whether mixing the two helps. Searches 21 weights; selected weight is 90% XGBoost and 10% MLP. |
 
-| Model | Purpose | Test MAE | Test RMSE | Test R² |
-| --- | --- | ---: | ---: | ---: |
-| Mean baseline | Constant reference | 11.7909 | 13.4584 | -0.41409 |
-| Ridge | Additive reference | 4.3442 | 5.5676 | 0.75799 |
-| XGBoost | Strong threshold and interaction model | 0.1099 | 0.4262 | 0.99858 |
-| MLP | Learned nonlinear combinations | 0.4466 | 0.9161 | 0.99345 |
-| Blend | Validation-selected combination | 0.1267 | 0.4222 | 0.99861 |
+Remove **9,971** exact duplicates. Flag invalid readings, fit median imputation on training only, and add eight quality flags. MLP and Ridge also use training-fitted `asinh` and standard scaling. Temperature outside [-5,50] °C is a review heuristic; unknown units are not guessed.
 
-These scores use all **202,886 test rows**. XGBoost has the lowest MAE. The blend
-slightly improves RMSE, with no significance claim from one seed. Its nominal 90%
-intervals cover 89.3% overall, but only 45.2% of Marginal rows. Native TreeSHAP and
-validation permutation importance describe model reliance, not causal effects.
+Training uses the same seed-42 sample of **300,000** pre-2019 records. Validation uses **2019** (50,000 rows for candidate tuning, all 87,177 for final selection). **2020** provides 49,182 calibration rows. Final testing uses all **202,886 records from 2021–2023**. Test results never select models.
 
-The source was already imputed upstream. Unit questions remain, countries are
-unequally represented and historical sites may recur. These limits remain explicit
-in the reports. An independent repeat of training reproduced the metrics exactly.
+## Results
 
-## Files kept and their purpose
+| Model | Test MAE ↓ | Test RMSE ↓ | Test R² ↑ |
+|---|---:|---:|---:|
+| Mean baseline | 11.7909 | 13.4584 | -0.41409 |
+| Ridge | 4.3442 | 5.5676 | 0.75799 |
+| XGBoost | **0.1099** | 0.4262 | 0.99858 |
+| MLP | 0.4466 | 0.9161 | 0.99345 |
+| Blend | 0.1267 | **0.4222** | **0.99861** |
 
-| Location | Purpose |
-| --- | --- |
-| `app.py` | Streamlit form and CSV demo using saved models |
-| `src/water_quality/` | Data rules, training, evaluation, explanations, inference and CLI |
-| `configs/default.json` | Reproducible experiment settings |
-| `artifacts/` | Selected tree/MLP, fitted preprocessing, model metadata and integrity hashes |
-| `examples/` | Input sample and expected predictions for demonstrations and reload tests |
-| `data/` | Versioned download instructions and source hashes; one training CSV locally |
-| `notebooks/` | Executed EDA, preprocessing and model-application notebooks |
-| `notebooks/reference/` | Original harmonization notebook documenting how labels were calculated |
-| `reports/` | Metrics, test predictions, figures, candidate history, audit and experiment manifests |
-| `submission/` | Final project/literature PDFs, editable team details and one verification record |
-| `presentation/` | Final PPT/PDF and the source needed to rebuild the editable deck |
-| `scripts/` | Download data, rebuild PDFs, repair generated PPT packaging and verify evidence |
-| `tests/` and `.github/workflows/` | Local tests and automated GitHub verification |
-| `pyproject.toml`, `requirements.lock.txt` | Package configuration and exact dependencies |
-| `learning.md`, `docs/DATA.md` | Concise theory and detailed target/provenance documentation |
-| `LICENSE`, `CITATION.cff`, Git configuration files | Usage rights, citation and repository hygiene |
+XGBoost is the strongest individual model. The blend slightly improves RMSE while worsening MAE. One seed does not establish statistical significance. The selected MLP reaches its epoch budget, so full convergence is unproven.
 
-Read the notebooks in order: [EDA](notebooks/01_eda.ipynb),
-[preprocessing](notebooks/02_preprocessing.ipynb), then
-[model application](notebooks/03_model_application.ipynb). The first two need the CSV.
-The third reads delivered results and performs saved-model inference.
+![Model comparison](figures/model_comparison.png)
 
-## Team details and document rebuilds
+Permutation importance and native XGBoost TreeSHAP identify orthophosphate and ammonia as the dominant inputs. These directly enter the source formula; importance is not causality.
 
-Team identities intentionally remain dummy values. Edit `submission/team.json`,
-then run `python scripts/build_submission.py` to rebuild the two report PDFs.
-For the presentation, run `npm ci` followed by `node build_deck.mjs` inside
-`presentation/`. The builder reads the actual results directly from `reports/`.
-The final PDF can be exported from PowerPoint or LibreOffice after editing the PPT.
+Nominal 90% residual intervals achieve **89.3%** overall coverage for the blend, but only **45.2%** on Marginal and **51.9%** on Poor index bands. Coverage is empirical under temporal shift. England dominates the dataset, 85.9% of test rows come from historical sites, China has no test rows and Canada has only 46. This is neither a future-target forecast nor a new-site benchmark. Computing the source formula is preferable when all original components are available.
 
-## Attribution
+The output ZIP contains `Models/` (weights, preprocessors, baselines and metadata) and `Results/` (full test predictions, metrics, subgroup scores, training histories, explanations, source audit, split details, versions and five prediction examples). All are generated by the model notebook. The report and presentation summarize these same measured results.
 
-Dataset: Karim et al., [Figshare v2](https://doi.org/10.6084/m9.figshare.27800394.v2),
-**CC BY 4.0**. The original harmonization notebook remains unchanged. New code and
-analysis use the [MIT license](LICENSE). Presentation photo credit is in
-[presentation/assets/README.md](presentation/assets/README.md).
-
-The user-supplied [flight-delay repository](https://github.com/abhi-7-7/Flight_Delay_Prediction)
-and [Canva presentation](https://canva.link/jhwgwqkgeon4gbs) informed the submission
-organization and presentation structure. No flight data or results enter this project.
+Repository organization follows the supplied [Flight Delay Prediction reference](https://github.com/abhi-7-7/Flight_Delay_Prediction). Presentation design draws on the supplied [Canva reference](https://canva.link/jhwgwqkgeon4gbs). Methods: [XGBoost](https://doi.org/10.1145/2939672.2939785), [Deep Learning, chapter 6](https://www.deeplearningbook.org/contents/mlp.html), [residual/conformal intervals](https://arxiv.org/abs/2107.07511).
