@@ -47,6 +47,11 @@ Water_Quality_Prediction/
 
 `.gitignore` excludes the local environment and regenerated intermediate files. `.gitattributes` tells Git to treat ZIPs, charts and documents as binary files.
 
+## Workflow companions
+
+- [Training, validation, calibration and test explained](Reports/Workflow_Explained.md): partition roles, worked residual examples and coverage limits.
+- [Saved-model prediction checklist](Reports/Prediction_Checklist.md): exact input headers, preprocessing, output fields and troubleshooting.
+
 ## Run the project
 
 Use **Python 3.12**. From the repository root:
