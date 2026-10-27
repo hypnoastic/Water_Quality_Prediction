@@ -1,0 +1,12 @@
+{
+  "project_number": 18,
+  "team_id": "TEAM-ID (replace)",
+  "section": "SECTION (replace)",
+  "institution": "INSTITUTION (replace)",
+  "members": [
+    {"name": "Team Member 1", "enrollment": "Enrollment 1"},
+    {"name": "Team Member 2", "enrollment": "Enrollment 2"},
+    {"name": "Team Member 3", "enrollment": "Enrollment 3"},
+    {"name": "Team Member 4", "enrollment": "Enrollment 4"}
+  ]
+}

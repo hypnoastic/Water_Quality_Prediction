@@ -1,0 +1,184 @@
+{
+  "raw_rows": 2827977,
+  "raw_columns": 14,
+  "country_counts": {
+    "England": 2129198,
+    "USA": 413814,
+    "Ireland": 235019,
+    "China": 45997,
+    "Canada": 3949
+  },
+  "class_counts": {
+    "Good": 1033709,
+    "Excellent": 1020710,
+    "Marginal": 328734,
+    "Fair": 317856,
+    "Poor": 126968
+  },
+  "area_counts_by_country": {
+    "Canada": 2354,
+    "China": 1,
+    "England": 48642,
+    "Ireland": 9737,
+    "USA": 955
+  },
+  "missing_as_delivered": {
+    "Country": 0,
+    "Area": 0,
+    "Waterbody Type": 0,
+    "Date": 0,
+    "Ammonia (mg/l)": 0,
+    "Biochemical Oxygen Demand (mg/l)": 0,
+    "Dissolved Oxygen (mg/l)": 0,
+    "Orthophosphate (mg/l)": 0,
+    "pH (ph units)": 0,
+    "Temperature (cel)": 0,
+    "Nitrogen (mg/l)": 0,
+    "Nitrate (mg/l)": 0,
+    "CCME_Values": 0,
+    "CCME_WQI": 0
+  },
+  "invalid_or_missing_by_feature": {
+    "Ammonia (mg/l)": 2,
+    "Biochemical Oxygen Demand (mg/l)": 2,
+    "Dissolved Oxygen (mg/l)": 0,
+    "Orthophosphate (mg/l)": 10,
+    "pH (ph units)": 505,
+    "Temperature (cel)": 5980,
+    "Nitrogen (mg/l)": 0,
+    "Nitrate (mg/l)": 0
+  },
+  "rows_with_quality_flags": 6468,
+  "feature_summary": {
+    "Ammonia (mg/l)": {
+      "count": 2827977.0,
+      "mean": 1.17136005,
+      "std": 5.6689272171,
+      "min": -0.005,
+      "25%": 0.03,
+      "50%": 0.055,
+      "75%": 0.317,
+      "max": 200.0
+    },
+    "Biochemical Oxygen Demand (mg/l)": {
+      "count": 2827977.0,
+      "mean": 4.886553941,
+      "std": 16.413631699,
+      "min": -2.0,
+      "25%": 1.6,
+      "50%": 2.7,
+      "75%": 2.83,
+      "max": 255.0
+    },
+    "Dissolved Oxygen (mg/l)": {
+      "count": 2827977.0,
+      "mean": 10.0079781151,
+      "std": 1.8510522589,
+      "min": 0.0,
+      "25%": 9.86,
+      "50%": 10.2,
+      "75%": 11.0,
+      "max": 20.0
+    },
+    "Orthophosphate (mg/l)": {
+      "count": 2827977.0,
+      "mean": 0.7104658419,
+      "std": 2.0894361074,
+      "min": -0.004,
+      "25%": 0.04,
+      "50%": 0.107,
+      "75%": 0.227,
+      "max": 100.0
+    },
+    "pH (ph units)": {
+      "count": 2827977.0,
+      "mean": 7.7359312255,
+      "std": 0.4946871356,
+      "min": -1.0,
+      "25%": 7.55,
+      "50%": 7.78,
+      "75%": 8.0,
+      "max": 30.0
+    },
+    "Temperature (cel)": {
+      "count": 2827977.0,
+      "mean": 11.8393408051,
+      "std": 5.0101967039,
+      "min": -5.26,
+      "25%": 8.99,
+      "50%": 11.46,
+      "75%": 14.2,
+      "max": 98.0
+    },
+    "Nitrogen (mg/l)": {
+      "count": 2827977.0,
+      "mean": 5.2095311176,
+      "std": 6.2004234449,
+      "min": 0.0,
+      "25%": 0.78,
+      "50%": 4.0,
+      "75%": 6.32,
+      "max": 46.0
+    },
+    "Nitrate (mg/l)": {
+      "count": 2827977.0,
+      "mean": 4.766793784,
+      "std": 6.0737807604,
+      "min": 0.0,
+      "25%": 1.173,
+      "50%": 4.5,
+      "75%": 4.94,
+      "max": 155.0
+    }
+  },
+  "most_frequent_reading": {
+    "Ammonia (mg/l)": {
+      "value": 0.03,
+      "fraction": 0.1862518683850682
+    },
+    "Biochemical Oxygen Demand (mg/l)": {
+      "value": 2.7,
+      "fraction": 0.24284249836543934
+    },
+    "Dissolved Oxygen (mg/l)": {
+      "value": 10.2,
+      "fraction": 0.3159626121428852
+    },
+    "Orthophosphate (mg/l)": {
+      "value": 0.144,
+      "fraction": 0.15711195670969036
+    },
+    "pH (ph units)": {
+      "value": 7.78,
+      "fraction": 0.1299511983301137
+    },
+    "Temperature (cel)": {
+      "value": 11.46,
+      "fraction": 0.11019856243526734
+    },
+    "Nitrogen (mg/l)": {
+      "value": 5.0,
+      "fraction": 0.14467585839630237
+    },
+    "Nitrate (mg/l)": {
+      "value": 4.5,
+      "fraction": 0.2534072943308945
+    }
+  },
+  "formula_audit": {
+    "denominator": 12,
+    "mae": 1.2201434571066875e-15,
+    "max_absolute_error": 2.842170943040401e-14,
+    "fraction_matching_at_1e_7": 1.0,
+    "finite_reconstructions": 2827977
+  },
+  "class_threshold_disagreements": 0,
+  "exact_duplicates_removed": 9971,
+  "invalid_metadata_or_target": 0,
+  "formula_test_metrics": {
+    "mae": 1.1771868427148373e-15,
+    "rmse": 4.227914207816892e-15,
+    "r2": 1.0
+  },
+  "retained_rows": 2818006
+}

@@ -1,0 +1,200 @@
+{
+  "id": 27800394,
+  "title": "A Comprehensive Surface Water Quality Monitoring Dataset (1940-2023): 2.82Million Record Resource for Empirical and ML-Based Research",
+  "version": 2,
+  "doi": "10.6084/m9.figshare.27800394.v2",
+  "url": "https://api.figshare.com/v2/articles/27800394",
+  "published_date": "2025-02-23T16:37:34Z",
+  "license": {
+    "value": 1,
+    "name": "CC BY 4.0",
+    "url": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "authors": [
+    {
+      "id": 17792681,
+      "full_name": "Md. Rajaul Karim",
+      "first_name": "Md. Rajaul",
+      "last_name": "Karim",
+      "is_active": true,
+      "url_name": "Md_Rajaul_Karim",
+      "orcid_id": "0000-0003-4152-7290"
+    },
+    {
+      "id": 18518988,
+      "full_name": "Mahbubul Syeed",
+      "first_name": "Mahbubul",
+      "last_name": "Syeed",
+      "is_active": true,
+      "url_name": "Mahbubul_Syeed",
+      "orcid_id": ""
+    },
+    {
+      "id": 17854703,
+      "full_name": "Ashifur Rahman",
+      "first_name": "Ashifur",
+      "last_name": "Rahman",
+      "is_active": true,
+      "url_name": "Ashifur_Rahman",
+      "orcid_id": "0000-0003-4308-8527"
+    },
+    {
+      "id": 18498123,
+      "full_name": "Khondkar Ayaz Rabbani",
+      "first_name": "Khondkar Ayaz",
+      "last_name": "Rabbani",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 20249498,
+      "full_name": "Kaniz Fatema",
+      "first_name": "Kaniz",
+      "last_name": "Fatema",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 18498126,
+      "full_name": "Razib Hayat Khan",
+      "first_name": "Razib Hayat",
+      "last_name": "Khan",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 18519032,
+      "full_name": "Md Shakhawat Hossain",
+      "first_name": "Md",
+      "last_name": "Shakhawat Hossain",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    },
+    {
+      "id": 18498129,
+      "full_name": "Mohammad Faisal Uddin",
+      "first_name": "Mohammad Faisal",
+      "last_name": "Uddin",
+      "is_active": false,
+      "url_name": "_",
+      "orcid_id": ""
+    }
+  ],
+  "files": [
+    {
+      "id": 50757288,
+      "name": "China_dataset.csv",
+      "size": 4302023,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757288",
+      "supplied_md5": "1d4d40ec832aac83e337c791e36ec1cf",
+      "computed_md5": "1d4d40ec832aac83e337c791e36ec1cf",
+      "mimetype": "text/csv"
+    },
+    {
+      "id": 50757291,
+      "name": "Canada_dataset.csv",
+      "size": 444329,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757291",
+      "supplied_md5": "7f643024a44c909f62b59055b1680f2a",
+      "computed_md5": "7f643024a44c909f62b59055b1680f2a",
+      "mimetype": "text/csv"
+    },
+    {
+      "id": 50757294,
+      "name": "Summary_country.xlsx",
+      "size": 14280,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757294",
+      "supplied_md5": "e63880d825eabd4233959d14f8163bb1",
+      "computed_md5": "e63880d825eabd4233959d14f8163bb1",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "id": 50757297,
+      "name": "Summary.xlsx",
+      "size": 14727,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757297",
+      "supplied_md5": "0273bceeeec15f3f7d99e33732bdee61",
+      "computed_md5": "0273bceeeec15f3f7d99e33732bdee61",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    },
+    {
+      "id": 50757300,
+      "name": "Data_Processing_Harmonization.ipynb",
+      "size": 202710,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757300",
+      "supplied_md5": "ac1c2d9e878ddb87064f69114beb2deb",
+      "computed_md5": "ac1c2d9e878ddb87064f69114beb2deb",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 50757303,
+      "name": "Technical_Validation.ipynb",
+      "size": 841939,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757303",
+      "supplied_md5": "a16c7709693f509c1bc43c5baccc6974",
+      "computed_md5": "a16c7709693f509c1bc43c5baccc6974",
+      "mimetype": "application/json"
+    },
+    {
+      "id": 50757306,
+      "name": "Ireland_dataset.csv",
+      "size": 28893760,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757306",
+      "supplied_md5": "f8a08d76bd4c960404e4aaf883aca6e4",
+      "computed_md5": "f8a08d76bd4c960404e4aaf883aca6e4",
+      "mimetype": "text/csv"
+    },
+    {
+      "id": 50757315,
+      "name": "USA_dataset.csv",
+      "size": 36573726,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757315",
+      "supplied_md5": "c73773748c39a62944e8a305ca9aca02",
+      "computed_md5": "c73773748c39a62944e8a305ca9aca02",
+      "mimetype": "text/csv"
+    },
+    {
+      "id": 50757318,
+      "name": "England_dataset.csv",
+      "size": 249246016,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757318",
+      "supplied_md5": "2680871c36f6413819e2b5a3b276d69b",
+      "computed_md5": "2680871c36f6413819e2b5a3b276d69b",
+      "mimetype": "text/csv"
+    },
+    {
+      "id": 50757321,
+      "name": "Combined_dataset.csv",
+      "size": 319547580,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/50757321",
+      "supplied_md5": "104f574c4674dfbf455079c4743ce1e4",
+      "computed_md5": "104f574c4674dfbf455079c4743ce1e4",
+      "mimetype": "text/csv"
+    },
+    {
+      "id": 52549544,
+      "name": "DataCollectionSources.xlsx",
+      "size": 37993,
+      "is_link_only": false,
+      "download_url": "https://ndownloader.figshare.com/files/52549544",
+      "supplied_md5": "ee2d897dd05e1e0f588f11aa9801708a",
+      "computed_md5": "ee2d897dd05e1e0f588f11aa9801708a",
+      "mimetype": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    }
+  ],
+  "references": []
+}

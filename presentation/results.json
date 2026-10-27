@@ -1,0 +1,1085 @@
+{
+  "data_audit": {
+    "raw_rows": 2827977,
+    "raw_columns": 14,
+    "country_counts": {
+      "England": 2129198,
+      "USA": 413814,
+      "Ireland": 235019,
+      "China": 45997,
+      "Canada": 3949
+    },
+    "class_counts": {
+      "Good": 1033709,
+      "Excellent": 1020710,
+      "Marginal": 328734,
+      "Fair": 317856,
+      "Poor": 126968
+    },
+    "area_counts_by_country": {
+      "Canada": 2354,
+      "China": 1,
+      "England": 48642,
+      "Ireland": 9737,
+      "USA": 955
+    },
+    "missing_as_delivered": {
+      "Country": 0,
+      "Area": 0,
+      "Waterbody Type": 0,
+      "Date": 0,
+      "Ammonia (mg/l)": 0,
+      "Biochemical Oxygen Demand (mg/l)": 0,
+      "Dissolved Oxygen (mg/l)": 0,
+      "Orthophosphate (mg/l)": 0,
+      "pH (ph units)": 0,
+      "Temperature (cel)": 0,
+      "Nitrogen (mg/l)": 0,
+      "Nitrate (mg/l)": 0,
+      "CCME_Values": 0,
+      "CCME_WQI": 0
+    },
+    "invalid_or_missing_by_feature": {
+      "Ammonia (mg/l)": 2,
+      "Biochemical Oxygen Demand (mg/l)": 2,
+      "Dissolved Oxygen (mg/l)": 0,
+      "Orthophosphate (mg/l)": 10,
+      "pH (ph units)": 505,
+      "Temperature (cel)": 5980,
+      "Nitrogen (mg/l)": 0,
+      "Nitrate (mg/l)": 0
+    },
+    "rows_with_quality_flags": 6468,
+    "feature_summary": {
+      "Ammonia (mg/l)": {
+        "count": 2827977.0,
+        "mean": 1.17136005,
+        "std": 5.6689272171,
+        "min": -0.005,
+        "25%": 0.03,
+        "50%": 0.055,
+        "75%": 0.317,
+        "max": 200.0
+      },
+      "Biochemical Oxygen Demand (mg/l)": {
+        "count": 2827977.0,
+        "mean": 4.886553941,
+        "std": 16.413631699,
+        "min": -2.0,
+        "25%": 1.6,
+        "50%": 2.7,
+        "75%": 2.83,
+        "max": 255.0
+      },
+      "Dissolved Oxygen (mg/l)": {
+        "count": 2827977.0,
+        "mean": 10.0079781151,
+        "std": 1.8510522589,
+        "min": 0.0,
+        "25%": 9.86,
+        "50%": 10.2,
+        "75%": 11.0,
+        "max": 20.0
+      },
+      "Orthophosphate (mg/l)": {
+        "count": 2827977.0,
+        "mean": 0.7104658419,
+        "std": 2.0894361074,
+        "min": -0.004,
+        "25%": 0.04,
+        "50%": 0.107,
+        "75%": 0.227,
+        "max": 100.0
+      },
+      "pH (ph units)": {
+        "count": 2827977.0,
+        "mean": 7.7359312255,
+        "std": 0.4946871356,
+        "min": -1.0,
+        "25%": 7.55,
+        "50%": 7.78,
+        "75%": 8.0,
+        "max": 30.0
+      },
+      "Temperature (cel)": {
+        "count": 2827977.0,
+        "mean": 11.8393408051,
+        "std": 5.0101967039,
+        "min": -5.26,
+        "25%": 8.99,
+        "50%": 11.46,
+        "75%": 14.2,
+        "max": 98.0
+      },
+      "Nitrogen (mg/l)": {
+        "count": 2827977.0,
+        "mean": 5.2095311176,
+        "std": 6.2004234449,
+        "min": 0.0,
+        "25%": 0.78,
+        "50%": 4.0,
+        "75%": 6.32,
+        "max": 46.0
+      },
+      "Nitrate (mg/l)": {
+        "count": 2827977.0,
+        "mean": 4.766793784,
+        "std": 6.0737807604,
+        "min": 0.0,
+        "25%": 1.173,
+        "50%": 4.5,
+        "75%": 4.94,
+        "max": 155.0
+      }
+    },
+    "most_frequent_reading": {
+      "Ammonia (mg/l)": {
+        "value": 0.03,
+        "fraction": 0.1862518683850682
+      },
+      "Biochemical Oxygen Demand (mg/l)": {
+        "value": 2.7,
+        "fraction": 0.24284249836543934
+      },
+      "Dissolved Oxygen (mg/l)": {
+        "value": 10.2,
+        "fraction": 0.3159626121428852
+      },
+      "Orthophosphate (mg/l)": {
+        "value": 0.144,
+        "fraction": 0.15711195670969036
+      },
+      "pH (ph units)": {
+        "value": 7.78,
+        "fraction": 0.1299511983301137
+      },
+      "Temperature (cel)": {
+        "value": 11.46,
+        "fraction": 0.11019856243526734
+      },
+      "Nitrogen (mg/l)": {
+        "value": 5.0,
+        "fraction": 0.14467585839630237
+      },
+      "Nitrate (mg/l)": {
+        "value": 4.5,
+        "fraction": 0.2534072943308945
+      }
+    },
+    "formula_audit": {
+      "denominator": 12,
+      "mae": 1.2201434571066875e-15,
+      "max_absolute_error": 2.842170943040401e-14,
+      "fraction_matching_at_1e_7": 1.0,
+      "finite_reconstructions": 2827977
+    },
+    "class_threshold_disagreements": 0,
+    "exact_duplicates_removed": 9971,
+    "invalid_metadata_or_target": 0,
+    "formula_test_metrics": {
+      "mae": 1.1771868427148373e-15,
+      "rmse": 4.227914207816892e-15,
+      "r2": 1.0
+    },
+    "retained_rows": 2818006
+  },
+  "split_manifest": {
+    "train": {
+      "rows": 2478761,
+      "start": "1940-01-02",
+      "end": "2018-12-28",
+      "countries": {
+        "England": 1887124,
+        "USA": 371009,
+        "Ireland": 171513,
+        "China": 45977,
+        "Canada": 3138
+      },
+      "sites": 55731,
+      "mean_target": 84.14802176822933
+    },
+    "validation": {
+      "rows": 87177,
+      "start": "2019-01-01",
+      "end": "2019-12-31",
+      "countries": {
+        "England": 64121,
+        "Ireland": 14404,
+        "USA": 8298,
+        "Canada": 354
+      },
+      "sites": 14705,
+      "mean_target": 90.37642895975497
+    },
+    "calibration": {
+      "rows": 49182,
+      "start": "2020-01-01",
+      "end": "2020-12-31",
+      "countries": {
+        "England": 29453,
+        "Ireland": 12846,
+        "USA": 6527,
+        "Canada": 356
+      },
+      "sites": 11484,
+      "mean_target": 91.92060444641744
+    },
+    "test": {
+      "rows": 202886,
+      "start": "2021-01-01",
+      "end": "2023-12-17",
+      "countries": {
+        "England": 147199,
+        "Ireland": 36230,
+        "USA": 19411,
+        "Canada": 46
+      },
+      "sites": 17462,
+      "mean_target": 91.41000249944668
+    },
+    "training_rows_used": 300000,
+    "tuning_rows_used": 50000,
+    "test_rows_at_sites_seen_before_2019": 0.8591967903157438
+  },
+  "run_manifest": {
+    "created_utc": "2026-10-26T08:43:05.882011+00:00",
+    "python": "3.12.13",
+    "platform": "macOS-26.5.1-arm64-arm-64bit",
+    "packages": {
+      "numpy": "2.3.4",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "xgboost": "3.1.2",
+      "torch": "2.9.1",
+      "matplotlib": "3.11.2",
+      "joblib": "1.6.0"
+    },
+    "config": {
+      "data": "data/raw/combined/Combined_dataset.csv",
+      "output": "reports",
+      "artifacts": "artifacts",
+      "seed": 42,
+      "train_end": "2018-12-31",
+      "validation_end": "2019-12-31",
+      "calibration_end": "2020-12-31",
+      "max_train_rows": 300000,
+      "max_tuning_rows": 50000,
+      "threads": 4,
+      "xgb_estimators": 1000,
+      "xgb_depths": [
+        4,
+        6
+      ],
+      "mlp_widths": [
+        [
+          64,
+          32
+        ],
+        [
+          128,
+          64
+        ]
+      ],
+      "mlp_epochs": 60,
+      "mlp_patience": 10,
+      "batch_size": 2048,
+      "alpha": 0.1,
+      "explanation_rows": 2000
+    },
+    "dataset_sha256": "81ced159f465aa5ab004b77130e5f7147c698876ddbf2f97807e31c9d0e8d714",
+    "reference_notebook_sha256": {
+      "Technical_Validation.ipynb": "6a6b7d9c94f689c0d143bb01ca356f40d3f70607865b457b3306168954232823",
+      "Data_Processing_Harmonization.ipynb": "e5d772f9a59965754fc61ceed528e6ff1a47b15698d9aa9e49d9e6779e7f5d80"
+    },
+    "runtime_seconds_before_report": 40.842082542018034,
+    "validation_scores": {
+      "Mean baseline": {
+        "mae": 11.573002821182381,
+        "rmse": 13.46158653970966,
+        "r2": -0.2747171424784116
+      },
+      "Ridge": {
+        "mae": 4.304670353419004,
+        "rmse": 5.5677144396830895,
+        "r2": 0.7819403870141106
+      },
+      "XGBoost": {
+        "mae": 0.12005635539849194,
+        "rmse": 0.4520334997866873,
+        "r2": 0.9985626498664364
+      },
+      "MLP": {
+        "mae": 0.4690546881744207,
+        "rmse": 0.9376321222550394,
+        "r2": 0.9938157607031338
+      },
+      "Blend": {
+        "mae": 0.13580287286022186,
+        "rmse": 0.4468636101828517,
+        "r2": 0.9985953396906248
+      }
+    }
+  },
+  "metrics": [
+    {
+      "model": "Mean baseline",
+      "mae": 11.79093974022976,
+      "rmse": 13.45838224663703,
+      "r2": -0.4140948152099246,
+      "coverage": 0.9447670120166004,
+      "mean_width": 31.745766281396545,
+      "radius": 15.872883140698278,
+      "validation_rmse": 13.46158653970966
+    },
+    {
+      "model": "Ridge",
+      "mae": 4.344161338134347,
+      "rmse": 5.567581828922844,
+      "r2": 0.7579940580128066,
+      "coverage": 0.84231538893763,
+      "mean_width": 13.956092079008178,
+      "radius": 7.858564471791013,
+      "validation_rmse": 5.5677144396830895
+    },
+    {
+      "model": "XGBoost",
+      "mae": 0.1099254478370119,
+      "rmse": 0.4262032717689346,
+      "r2": 0.9985818362815542,
+      "coverage": 0.8840186114369646,
+      "mean_width": 0.3073355555534363,
+      "radius": 0.1977771676969766,
+      "validation_rmse": 0.4520334997866873
+    },
+    {
+      "model": "MLP",
+      "mae": 0.4466129300348945,
+      "rmse": 0.916081601827637,
+      "r2": 0.9934481924225154,
+      "coverage": 0.9034235974882446,
+      "mean_width": 2.2596123218536377,
+      "radius": 1.4206320472601843,
+      "validation_rmse": 0.9376321222550394
+    },
+    {
+      "model": "Blend",
+      "mae": 0.1267377321376554,
+      "rmse": 0.4222479778986707,
+      "r2": 0.9986080361108542,
+      "coverage": 0.8932750411561172,
+      "mean_width": 0.400175541639328,
+      "radius": 0.253377673036752,
+      "validation_rmse": 0.4468636101828517
+    }
+  ],
+  "importance": [
+    {
+      "model": "XGBoost",
+      "feature": "Ammonia",
+      "mae_increase": 2.6533913158080153,
+      "repeat_std": 0.0841167465944823
+    },
+    {
+      "model": "XGBoost",
+      "feature": "BOD",
+      "mae_increase": 0.9898966153958608,
+      "repeat_std": 0.0143325502131799
+    },
+    {
+      "model": "XGBoost",
+      "feature": "Dissolved oxygen",
+      "mae_increase": 0.0326322777736678,
+      "repeat_std": 0.0032895731802283
+    },
+    {
+      "model": "XGBoost",
+      "feature": "Orthophosphate",
+      "mae_increase": 8.492496828825269,
+      "repeat_std": 0.1576578616381022
+    },
+    {
+      "model": "XGBoost",
+      "feature": "pH",
+      "mae_increase": 0.2253441085577993,
+      "repeat_std": 0.0023034116088389
+    },
+    {
+      "model": "XGBoost",
+      "feature": "Temperature",
+      "mae_increase": 0.028582953012409,
+      "repeat_std": 0.000806470711771
+    },
+    {
+      "model": "XGBoost",
+      "feature": "Nitrogen",
+      "mae_increase": 0.1295331875427297,
+      "repeat_std": 0.0020913045160944
+    },
+    {
+      "model": "XGBoost",
+      "feature": "Nitrate",
+      "mae_increase": 0.0064087176978325,
+      "repeat_std": 0.0041064399117057
+    },
+    {
+      "model": "MLP",
+      "feature": "Ammonia",
+      "mae_increase": 2.5712337547204194,
+      "repeat_std": 0.0197695456853852
+    },
+    {
+      "model": "MLP",
+      "feature": "BOD",
+      "mae_increase": 0.9365814138461208,
+      "repeat_std": 0.0251966026959186
+    },
+    {
+      "model": "MLP",
+      "feature": "Dissolved oxygen",
+      "mae_increase": 0.0362291788218981,
+      "repeat_std": 0.0054539131132456
+    },
+    {
+      "model": "MLP",
+      "feature": "Orthophosphate",
+      "mae_increase": 7.934573562265659,
+      "repeat_std": 0.0491116693803432
+    },
+    {
+      "model": "MLP",
+      "feature": "pH",
+      "mae_increase": 0.2074795945065431,
+      "repeat_std": 0.0123911449282494
+    },
+    {
+      "model": "MLP",
+      "feature": "Temperature",
+      "mae_increase": 0.0157900362424685,
+      "repeat_std": 0.0034635005787581
+    },
+    {
+      "model": "MLP",
+      "feature": "Nitrogen",
+      "mae_increase": 0.1542679098626969,
+      "repeat_std": 0.0046462547737744
+    },
+    {
+      "model": "MLP",
+      "feature": "Nitrate",
+      "mae_increase": 0.0451998205886687,
+      "repeat_std": 0.0007520330649129
+    }
+  ],
+  "groups": [
+    {
+      "model": "Mean baseline",
+      "group_type": "country",
+      "group": "Canada",
+      "rows": 46,
+      "mae": 9.761095073015634,
+      "rmse": 12.580511235987643,
+      "r2": -0.029050068756381,
+      "coverage": 0.9130434782608696,
+      "mean_width": 31.745766281396552,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "country",
+      "group": "England",
+      "rows": 147199,
+      "mae": 10.711888386368807,
+      "rmse": 12.842380559042557,
+      "r2": -0.1463976252746108,
+      "coverage": 0.924985903436844,
+      "mean_width": 31.745766281396552,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "country",
+      "group": "Ireland",
+      "rows": 36230,
+      "mae": 14.678549323769904,
+      "rmse": 15.012951291687198,
+      "r2": -11.507646965579564,
+      "coverage": 0.996908639249241,
+      "mean_width": 31.745766281396556,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "country",
+      "group": "USA",
+      "rows": 19411,
+      "mae": 14.58886657965125,
+      "rmse": 14.880531416768584,
+      "r2": -16.030504073024762,
+      "coverage": 0.9975271753129668,
+      "mean_width": 31.745766281396545,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "source_index_band",
+      "group": "Poor",
+      "rows": 756,
+      "mae": 41.33624345321054,
+      "rmse": 41.368042388327865,
+      "r2": -649.7127961421199,
+      "coverage": 0.0,
+      "mean_width": 31.74576628139655,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "source_index_band",
+      "group": "Marginal",
+      "rows": 8033,
+      "mae": 27.56015315606177,
+      "rmse": 28.12608293498346,
+      "r2": -24.10198668356919,
+      "coverage": 0.0,
+      "mean_width": 31.74576628139654,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "source_index_band",
+      "group": "Fair",
+      "rows": 18266,
+      "mae": 10.25465484888356,
+      "rmse": 11.05309042337688,
+      "r2": -6.181085056320849,
+      "coverage": 0.8676776524690683,
+      "mean_width": 31.745766281396552,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "source_index_band",
+      "group": "Good",
+      "rows": 82227,
+      "mae": 5.673304520551096,
+      "rmse": 6.320556691966355,
+      "r2": -2.228150661587188,
+      "coverage": 1.0,
+      "mean_width": 31.745766281396552,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Mean baseline",
+      "group_type": "source_index_band",
+      "group": "Excellent",
+      "rows": 93604,
+      "mae": 15.872883140698274,
+      "rmse": 15.872883140698276,
+      "r2": 0.0,
+      "coverage": 1.0,
+      "mean_width": 31.74576628139655,
+      "radius": 15.872883140698278
+    },
+    {
+      "model": "Ridge",
+      "group_type": "country",
+      "group": "Canada",
+      "rows": 46,
+      "mae": 6.435246125304974,
+      "rmse": 8.303211759228342,
+      "r2": 0.5517377629814346,
+      "coverage": 0.6956521739130435,
+      "mean_width": 14.061285926094738,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "country",
+      "group": "England",
+      "rows": 147199,
+      "mae": 4.680686930192238,
+      "rmse": 6.0277481890253295,
+      "r2": 0.7474459078815967,
+      "coverage": 0.7973287862009932,
+      "mean_width": 14.900054174828512,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "country",
+      "group": "Ireland",
+      "rows": 36230,
+      "mae": 3.966263861705399,
+      "rmse": 4.586048945328918,
+      "r2": -0.1671343054707328,
+      "coverage": 0.944300303615788,
+      "mean_width": 12.262494685730289,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "country",
+      "group": "USA",
+      "rows": 19411,
+      "mae": 2.4925722930301,
+      "rmse": 3.007786829184092,
+      "r2": 0.3041995154865574,
+      "coverage": 0.993457318015558,
+      "mean_width": 9.958560684378048,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "source_index_band",
+      "group": "Poor",
+      "rows": 756,
+      "mae": 12.434810004042207,
+      "rmse": 15.1580666798916,
+      "r2": -86.36692169604207,
+      "coverage": 0.3915343915343915,
+      "mean_width": 15.599791874355171,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "source_index_band",
+      "group": "Marginal",
+      "rows": 8033,
+      "mae": 9.67643548321563,
+      "rmse": 10.707086231923464,
+      "r2": -2.6377444730860637,
+      "coverage": 0.3617577492842027,
+      "mean_width": 15.717128943582024,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "source_index_band",
+      "group": "Fair",
+      "rows": 18266,
+      "mae": 5.8730710858990465,
+      "rmse": 6.916831871849477,
+      "r2": -1.8121408144075493,
+      "coverage": 0.7227636045111135,
+      "mean_width": 15.714857093488355,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "source_index_band",
+      "group": "Good",
+      "rows": 82227,
+      "mae": 2.609155410203181,
+      "rmse": 3.2559442076956437,
+      "r2": 0.1433625785256687,
+      "coverage": 0.984214430783076,
+      "mean_width": 15.188385680235758,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "Ridge",
+      "group_type": "source_index_band",
+      "group": "Excellent",
+      "rows": 93604,
+      "mae": 5.046979362839077,
+      "rmse": 6.0700071566667075,
+      "r2": 0.0,
+      "coverage": 0.7858745352762703,
+      "mean_width": 12.365962876398896,
+      "radius": 7.858564471791013
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "country",
+      "group": "Canada",
+      "rows": 46,
+      "mae": 0.8621043652303321,
+      "rmse": 1.774290168347877,
+      "r2": 0.9795313491381152,
+      "coverage": 0.5217391304347826,
+      "mean_width": 0.3878158926963806,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "country",
+      "group": "England",
+      "rows": 147199,
+      "mae": 0.1365173048007557,
+      "rmse": 0.451221956964511,
+      "r2": 0.9985847777211126,
+      "coverage": 0.8492245191883097,
+      "mean_width": 0.3353480994701385,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "country",
+      "group": "Ireland",
+      "rows": 36230,
+      "mae": 0.0380426569831019,
+      "rmse": 0.2993633011910861,
+      "r2": 0.9950267466705086,
+      "coverage": 0.9696384211979024,
+      "mean_width": 0.2318830043077469,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "country",
+      "group": "USA",
+      "rows": 19411,
+      "mae": 0.0406564008652407,
+      "rmse": 0.424174045718458,
+      "r2": 0.986161825485654,
+      "coverage": 0.9889238060893308,
+      "mean_width": 0.2355476766824722,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "source_index_band",
+      "group": "Poor",
+      "rows": 756,
+      "mae": 0.5142874602912735,
+      "rmse": 0.8146424522941571,
+      "r2": 0.7476557089770188,
+      "coverage": 0.4907407407407407,
+      "mean_width": 0.3955535888671875,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "source_index_band",
+      "group": "Marginal",
+      "rows": 8033,
+      "mae": 0.4320173983264173,
+      "rmse": 0.6325877090935779,
+      "r2": 0.9873021238211328,
+      "coverage": 0.3072326652558197,
+      "mean_width": 0.3955535888671875,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "source_index_band",
+      "group": "Fair",
+      "rows": 18266,
+      "mae": 0.2918401046856765,
+      "rmse": 0.5658674260591288,
+      "r2": 0.9811785961156269,
+      "coverage": 0.4842877477280192,
+      "mean_width": 0.3955536186695099,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "source_index_band",
+      "group": "Good",
+      "rows": 82227,
+      "mae": 0.1329488105841974,
+      "rmse": 0.517720008464876,
+      "r2": 0.978341267742976,
+      "coverage": 0.9214369975798704,
+      "mean_width": 0.3955535888671875,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "XGBoost",
+      "group_type": "source_index_band",
+      "group": "Excellent",
+      "rows": 93604,
+      "mae": 0.0232939204417366,
+      "rmse": 0.236812212750934,
+      "r2": 0.0,
+      "coverage": 0.9818276996709542,
+      "mean_width": 0.2043416202068328,
+      "radius": 0.1977771676969766
+    },
+    {
+      "model": "MLP",
+      "group_type": "country",
+      "group": "Canada",
+      "rows": 46,
+      "mae": 2.5507325472377387,
+      "rmse": 3.139873223889187,
+      "r2": 0.9358990962459586,
+      "coverage": 0.3043478260869565,
+      "mean_width": 2.8216135501861572,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "country",
+      "group": "England",
+      "rows": 147199,
+      "mae": 0.4955669585081274,
+      "rmse": 0.9481580204386074,
+      "r2": 0.993751070091046,
+      "coverage": 0.8909503461300688,
+      "mean_width": 2.446808099746704,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "country",
+      "group": "Ireland",
+      "rows": 36230,
+      "mae": 0.2894771984324346,
+      "rmse": 0.8770151133488925,
+      "r2": 0.957316736411965,
+      "coverage": 0.937510350538228,
+      "mean_width": 1.7194465398788452,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "country",
+      "group": "USA",
+      "rows": 19411,
+      "mae": 0.3636833548627948,
+      "rmse": 0.7036413551324652,
+      "r2": 0.9619203162466928,
+      "coverage": 0.9358095924990985,
+      "mean_width": 1.8469229936599731,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "source_index_band",
+      "group": "Poor",
+      "rows": 756,
+      "mae": 1.1992328377146626,
+      "rmse": 1.963990810593028,
+      "r2": -0.4666899307135652,
+      "coverage": 0.7023809523809523,
+      "mean_width": 2.8412628173828125,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "source_index_band",
+      "group": "Marginal",
+      "rows": 8033,
+      "mae": 0.7909223650875892,
+      "rmse": 1.1108527214566823,
+      "r2": 0.96084361811354,
+      "coverage": 0.8651811278476286,
+      "mean_width": 2.8412630558013916,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "source_index_band",
+      "group": "Fair",
+      "rows": 18266,
+      "mae": 0.6439400386365886,
+      "rmse": 1.0878645036567232,
+      "r2": 0.9304379715998315,
+      "coverage": 0.8739735026825797,
+      "mean_width": 2.8412628173828125,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "source_index_band",
+      "group": "Good",
+      "rows": 82227,
+      "mae": 0.6525773351324816,
+      "rmse": 1.164157812585849,
+      "r2": 0.8904867046468126,
+      "coverage": 0.8482493584832232,
+      "mean_width": 2.841120958328247,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "MLP",
+      "group_type": "source_index_band",
+      "group": "Excellent",
+      "rows": 93604,
+      "mae": 0.1915487186159161,
+      "rmse": 0.5103325316252006,
+      "r2": 0.0,
+      "coverage": 0.962544335712149,
+      "mean_width": 1.5806639194488523,
+      "radius": 1.4206320472601843
+    },
+    {
+      "model": "Blend",
+      "group_type": "country",
+      "group": "Canada",
+      "rows": 46,
+      "mae": 1.005974040047478,
+      "rmse": 1.8221749501425444,
+      "r2": 0.9784116191966736,
+      "coverage": 0.4782608695652174,
+      "mean_width": 0.5031492710113525,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "country",
+      "group": "England",
+      "rows": 147199,
+      "mae": 0.1508826947667836,
+      "rmse": 0.4466304673599259,
+      "r2": 0.9986134328767946,
+      "coverage": 0.8688510112161089,
+      "mean_width": 0.434685468673706,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "country",
+      "group": "Ireland",
+      "rows": 36230,
+      "mae": 0.0587492293379635,
+      "rmse": 0.305621332686173,
+      "r2": 0.994816646912588,
+      "coverage": 0.9496549820590672,
+      "mean_width": 0.3037123382091522,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "country",
+      "group": "USA",
+      "rows": 19411,
+      "mae": 0.0684545026401517,
+      "rmse": 0.4106518786484795,
+      "r2": 0.9870300516008852,
+      "coverage": 0.9742414095100717,
+      "mean_width": 0.3182788789272308,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "source_index_band",
+      "group": "Poor",
+      "rows": 756,
+      "mae": 0.4934149206879276,
+      "rmse": 0.7686616656499723,
+      "r2": 0.7753378798995751,
+      "coverage": 0.5185185185185185,
+      "mean_width": 0.5067520141601562,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "source_index_band",
+      "group": "Marginal",
+      "rows": 8033,
+      "mae": 0.4025677022702939,
+      "rmse": 0.5961029749148893,
+      "r2": 0.9887245945573996,
+      "coverage": 0.4518859703722146,
+      "mean_width": 0.5067527890205383,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "source_index_band",
+      "group": "Fair",
+      "rows": 18266,
+      "mae": 0.2817500348757968,
+      "rmse": 0.5568800159263294,
+      "r2": 0.9817717115969016,
+      "coverage": 0.6610095258951056,
+      "mean_width": 0.5067596435546875,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "source_index_band",
+      "group": "Good",
+      "rows": 82227,
+      "mae": 0.1605866754025191,
+      "rmse": 0.5173718223033705,
+      "r2": 0.9783703905693316,
+      "coverage": 0.8962263003636275,
+      "mean_width": 0.5067596435546875,
+      "radius": 0.253377673036752
+    },
+    {
+      "model": "Blend",
+      "group_type": "source_index_band",
+      "group": "Excellent",
+      "rows": 93604,
+      "mae": 0.0401206870939144,
+      "rmse": 0.2356416794324355,
+      "r2": 0.0,
+      "coverage": 0.9769133797700952,
+      "mean_width": 0.2757400572299957,
+      "radius": 0.253377673036752
+    }
+  ],
+  "candidates": [
+    {
+      "family": "XGBoost",
+      "architecture": "4",
+      "mae": 0.1380642749589183,
+      "rmse": 0.4781373554529218,
+      "r2": 0.9983981791746904,
+      "seconds": 2.3174993329448625,
+      "best_step": 999
+    },
+    {
+      "family": "XGBoost",
+      "architecture": "6",
+      "mae": 0.1198438383462561,
+      "rmse": 0.4527014834576566,
+      "r2": 0.9985640728052926,
+      "seconds": 2.5169834579573944,
+      "best_step": 803
+    },
+    {
+      "family": "MLP",
+      "architecture": "[64, 32]",
+      "mae": 0.6412465527995966,
+      "rmse": 1.1210800398677447,
+      "r2": 0.9911939362343918,
+      "seconds": 9.248159750015477,
+      "best_step": 59
+    },
+    {
+      "family": "MLP",
+      "architecture": "[128, 64]",
+      "mae": 0.4690171645319071,
+      "rmse": 0.9371450320849032,
+      "r2": 0.993846500071654,
+      "seconds": 14.252855541999452,
+      "best_step": 60
+    }
+  ],
+  "metadata": {
+    "schema_version": 1,
+    "selected_model": "Blend",
+    "features": [
+      "Ammonia (mg/l)",
+      "Biochemical Oxygen Demand (mg/l)",
+      "Dissolved Oxygen (mg/l)",
+      "Orthophosphate (mg/l)",
+      "pH (ph units)",
+      "Temperature (cel)",
+      "Nitrogen (mg/l)",
+      "Nitrate (mg/l)"
+    ],
+    "mlp_widths": [
+      128,
+      64
+    ],
+    "dropout": 0.1,
+    "blend_xgboost_weight": 0.9,
+    "radii": {
+      "Mean baseline": 15.872883140698278,
+      "Ridge": 7.858564471791013,
+      "XGBoost": 0.19777716769697662,
+      "MLP": 1.4206320472601845,
+      "Blend": 0.25337767303675207
+    },
+    "alpha": 0.1,
+    "target": "CCME_Values",
+    "task": "Emulation of the source-defined, row-level derived index",
+    "xgboost_best_iteration": 802,
+    "warning": "This index is not official site-period CCME WQI or drinking-water safety."
+  }
+}

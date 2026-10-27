@@ -1,0 +1,12 @@
+{
+  "pytest": "16 passed",
+  "lint": "PASS",
+  "dependencies": "No broken requirements",
+  "notebooks": "All four project notebooks executed, no error outputs",
+  "training_reproduction": "Exact match for MAE, RMSE, R2, coverage and mean width",
+  "presentation": "12 slides rendered and visually inspected",
+  "pdf_reports": "10-page report and 4-page literature review visually inspected",
+  "credentials_scan": "No credential patterns found in the publication files",
+  "team_details": "Dummy values retained by request",
+  "fresh_publication_checkout": "16 tests and 27 portable submission checks passed without extracted raw CSVs"
+}

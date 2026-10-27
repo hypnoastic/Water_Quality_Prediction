@@ -1,0 +1,209 @@
+{
+  "verified_utc": "2026-10-26T23:40:47.981070+00:00",
+  "status": "PASS",
+  "checks": [
+    {
+      "check": "Submission artifacts",
+      "status": "PASS",
+      "detail": "15 required files"
+    },
+    {
+      "check": "Trained artifact hashes",
+      "status": "PASS",
+      "detail": "6 saved artifact hashes match"
+    },
+    {
+      "check": "Data accounting",
+      "status": "PASS",
+      "detail": "2,818,006 retained rows across disjoint dated partitions"
+    },
+    {
+      "check": "One continuous target",
+      "status": "PASS",
+      "detail": "CCME_Values regression, eight measurement inputs plus flags"
+    },
+    {
+      "check": "Formula disclosure",
+      "status": "PASS",
+      "detail": "Every original label reconstructs; derived-target limitation is explicit"
+    },
+    {
+      "check": "Chronological separation",
+      "status": "PASS",
+      "detail": "Training, validation, calibration and testing occupy separate ordered periods"
+    },
+    {
+      "check": "Shared training sample",
+      "status": "PASS",
+      "detail": "300,000 seed-42 historical rows train every candidate"
+    },
+    {
+      "check": "Full test predictions",
+      "status": "PASS",
+      "detail": "202,886 test rows with unique traceable source IDs"
+    },
+    {
+      "check": "Recomputed metrics: Mean baseline",
+      "status": "PASS",
+      "detail": "MAE 11.790940; RMSE 13.458382; R2 -0.414095"
+    },
+    {
+      "check": "Recomputed metrics: Ridge",
+      "status": "PASS",
+      "detail": "MAE 4.344161; RMSE 5.567582; R2 0.757994"
+    },
+    {
+      "check": "Recomputed metrics: XGBoost",
+      "status": "PASS",
+      "detail": "MAE 0.109925; RMSE 0.426203; R2 0.998582"
+    },
+    {
+      "check": "Recomputed metrics: MLP",
+      "status": "PASS",
+      "detail": "MAE 0.446613; RMSE 0.916082; R2 0.993448"
+    },
+    {
+      "check": "Recomputed metrics: Blend",
+      "status": "PASS",
+      "detail": "MAE 0.126738; RMSE 0.422248; R2 0.998608"
+    },
+    {
+      "check": "Reload parity: XGBoost",
+      "status": "PASS",
+      "detail": "Reloaded models match the saved holdout fixture"
+    },
+    {
+      "check": "Reload parity: MLP",
+      "status": "PASS",
+      "detail": "Reloaded models match the saved holdout fixture"
+    },
+    {
+      "check": "Reload parity: Blend",
+      "status": "PASS",
+      "detail": "Reloaded models match the saved holdout fixture"
+    },
+    {
+      "check": "Executed notebook: 01_results.ipynb",
+      "status": "PASS",
+      "detail": "6 executed cells with no recorded errors"
+    },
+    {
+      "check": "Executed notebook: 02_eda.ipynb",
+      "status": "PASS",
+      "detail": "6 executed cells with no recorded errors"
+    },
+    {
+      "check": "Executed notebook: 03_preprocessing.ipynb",
+      "status": "PASS",
+      "detail": "5 executed cells with no recorded errors"
+    },
+    {
+      "check": "Executed notebook: 04_model_application.ipynb",
+      "status": "PASS",
+      "detail": "6 executed cells with no recorded errors"
+    },
+    {
+      "check": "PDF: Water_Quality_Project_Report.pdf",
+      "status": "PASS",
+      "detail": "10 readable pages"
+    },
+    {
+      "check": "PDF: Water_Quality_Literature_Review.pdf",
+      "status": "PASS",
+      "detail": "4 readable pages"
+    },
+    {
+      "check": "PDF: Water_Quality_Prediction.pdf",
+      "status": "PASS",
+      "detail": "12 readable pages"
+    },
+    {
+      "check": "Editable presentation",
+      "status": "PASS",
+      "detail": "12 slides, four native charts with embedded workbooks, 12 speaker-note parts"
+    },
+    {
+      "check": "PPTX package integrity",
+      "status": "PASS",
+      "detail": "Every declared content-type part exists"
+    },
+    {
+      "check": "Source hash: Combined_dataset.csv",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: Canada_dataset.csv",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: China_dataset.csv",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: England_dataset.csv",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: Ireland_dataset.csv",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: USA_dataset.csv",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: DataCollectionSources.xlsx",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: Summary.xlsx",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: Summary_country.xlsx",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: Data_Processing_Harmonization.ipynb",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Source hash: Technical_Validation.ipynb",
+      "status": "PASS",
+      "detail": "Original source file is unchanged"
+    },
+    {
+      "check": "Independent full formula replay",
+      "status": "PASS",
+      "detail": "2,827,977 rows; maximum absolute difference 2.842e-14"
+    },
+    {
+      "check": "Archived source: combined_source.zip",
+      "status": "PASS",
+      "detail": "1 original CSVs verified inside the archive"
+    },
+    {
+      "check": "Archived source: country_sources.zip",
+      "status": "PASS",
+      "detail": "5 original CSVs verified inside the archive"
+    },
+    {
+      "check": "Independent training reproduction",
+      "status": "PASS",
+      "detail": "Maximum metric difference 0.000e+00"
+    }
+  ],
+  "raw_checks_skipped": false,
+  "assessment": "Apt for the brief as a transparent index-emulation comparison; independent environmental prediction is not established.",
+  "administrative_note": "Dummy team details are intentional, as requested."
+}

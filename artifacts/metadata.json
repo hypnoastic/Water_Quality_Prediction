@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "selected_model": "Blend",
+  "features": [
+    "Ammonia (mg/l)",
+    "Biochemical Oxygen Demand (mg/l)",
+    "Dissolved Oxygen (mg/l)",
+    "Orthophosphate (mg/l)",
+    "pH (ph units)",
+    "Temperature (cel)",
+    "Nitrogen (mg/l)",
+    "Nitrate (mg/l)"
+  ],
+  "mlp_widths": [
+    128,
+    64
+  ],
+  "dropout": 0.1,
+  "blend_xgboost_weight": 0.9,
+  "radii": {
+    "Mean baseline": 15.872883140698278,
+    "Ridge": 7.858564471791013,
+    "XGBoost": 0.19777716769697662,
+    "MLP": 1.4206320472601845,
+    "Blend": 0.25337767303675207
+  },
+  "alpha": 0.1,
+  "target": "CCME_Values",
+  "task": "Emulation of the source-defined, row-level derived index",
+  "xgboost_best_iteration": 802,
+  "warning": "This index is not official site-period CCME WQI or drinking-water safety."
+}

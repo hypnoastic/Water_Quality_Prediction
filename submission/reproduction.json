@@ -1,0 +1,15 @@
+{
+  "seed": 42,
+  "training_rows": 300000,
+  "full_test_rows": 202886,
+  "metric_columns": [
+    "mae",
+    "rmse",
+    "r2",
+    "coverage",
+    "mean_width"
+  ],
+  "max_absolute_difference": 0.0,
+  "status": "PASS",
+  "note": "A second full training/evaluation run reproduced the delivered run. Timing is excluded."
+}

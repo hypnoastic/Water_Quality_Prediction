@@ -1,0 +1,18 @@
+.DS_Store
+.venv/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.build/
+node_modules/
+.env
+.env.*
+*.part
+# Download separately; retain small references, reports and trained artifacts.
+data/raw/**/*.csv
+# Full test predictions are included in the submission for reproducibility.
