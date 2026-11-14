@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "features": [
+    "Ammonia (mg/l)",
+    "Biochemical Oxygen Demand (mg/l)",
+    "Dissolved Oxygen (mg/l)",
+    "Orthophosphate (mg/l)",
+    "pH (ph units)",
+    "Temperature (cel)",
+    "Nitrogen (mg/l)",
+    "Nitrate (mg/l)"
+  ],
+  "architecture": {
+    "input_dim": 16,
+    "widths": [
+      128,
+      64
+    ],
+    "dropout": 0.0,
+    "activation": "ReLU"
+  },
+  "training": {
+    "seed": 42,
+    "threads": 4,
+    "batch_size": 2048,
+    "weight_decay": 0.0001,
+    "optimizer": "AdamW",
+    "loss": "MSE on target/100",
+    "schedule": "onecycle",
+    "max_lr": 0.003,
+    "epochs": 60
+  },
+  "models": {
+    "mlp_evaluation.pt": {
+      "trained_on": "all 1940-2018 rows",
+      "rows": 2478761,
+      "preprocessor": "evaluation"
+    },
+    "mlp_final_all_years.pt": {
+      "trained_on": "all 1940-2023 rows",
+      "rows": 2818006,
+      "preprocessor": "final"
+    }
+  },
+  "interval_radius_90": 0.05101776123046875,
+  "alpha": 0.1,
+  "target": "CCME_Values",
+  "task": "Emulation of the source-defined, row-level derived index",
+  "warning": "This index is not official site-period CCME WQI or drinking-water safety."
+}
