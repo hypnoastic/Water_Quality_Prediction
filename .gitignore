@@ -1,6 +1,11 @@
-# Local environment and notebook intermediates
+# Local environment
 .venv/
 __pycache__/
 .ipynb_checkpoints/
 .DS_Store
-Datasets/_working/
+
+# Regenerated intermediate files (extracted CSV, preparation caches)
+_working/
+
+# Local-only viva/presentation guides
+Guides/

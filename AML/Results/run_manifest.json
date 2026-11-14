@@ -1,0 +1,49 @@
+{
+  "created_utc": "2026-11-17T04:02:28.293347+00:00",
+  "python": "3.12.13",
+  "platform": "macOS-26.5.1-arm64-arm-64bit",
+  "packages": {
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "xgboost": "3.1.2",
+    "matplotlib": "3.11.2",
+    "joblib": "1.6.0"
+  },
+  "config": {
+    "seed": 42,
+    "train_end": "2018-12-31",
+    "validation_end": "2019-12-31",
+    "calibration_end": "2020-12-31",
+    "max_train_rows": 300000,
+    "max_tuning_rows": 50000,
+    "threads": 4,
+    "xgb_estimators": 1000,
+    "xgb_depths": [
+      4,
+      6
+    ],
+    "alpha": 0.1,
+    "explanation_rows": 2000,
+    "data": "Datasets/_working/Combined_dataset.csv"
+  },
+  "dataset_sha256": "81ced159f465aa5ab004b77130e5f7147c698876ddbf2f97807e31c9d0e8d714",
+  "runtime_seconds": 8.443569125025533,
+  "validation_scores": {
+    "Mean baseline": {
+      "mae": 11.573002821182381,
+      "rmse": 13.46158653970966,
+      "r2": -0.2747171424784116
+    },
+    "Ridge": {
+      "mae": 4.304656748529832,
+      "rmse": 5.56767427211647,
+      "r2": 0.7819435333293648
+    },
+    "XGBoost": {
+      "mae": 0.12005635539849194,
+      "rmse": 0.4520334997866873,
+      "r2": 0.9985626498664364
+    }
+  }
+}

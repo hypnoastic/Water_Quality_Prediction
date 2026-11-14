@@ -2,3 +2,7 @@
 *.pptx binary
 *.zip binary
 *.png binary
+*.jpg binary
+*.pt binary
+*.joblib binary
+*.gz binary
