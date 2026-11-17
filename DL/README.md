@@ -15,6 +15,7 @@ A feedforward neural network (multilayer perceptron) estimates the continuous, 0
 | `Results/` | Architecture search, test predictions, metrics, subgroup scores, permutation importance, training histories, run manifest and a prediction example |
 | `figures/` | Input scaling, temporal split, learning curves, model comparison, actual vs predicted, feature importance, performance by band |
 | `Reports/Water_Quality_DL_Presentation.pptx` (+ `.pdf`) | The 8-slide presentation for this part |
+| `Reports/Water_Quality_DL_Report.pdf` | Project report for this part: data, preparation, network, experiments, results, reliability and limitations |
 
 ## Selected network
 
